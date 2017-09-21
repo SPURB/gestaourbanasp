@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% block body_class %}template-blogindexpage{% endblock %}
+
+{% block content %}
+	<h1>{{ page.title }}</h1>
+	<div class="intro">{{ page.intro|richtext }}</div>
+
+	{% for news in newspages %}
+		{% with news=news.specific %}
+			<h2><a href="{% pageurl news %}">{{ news.title }}</a></h2>
+
+			{% with news.main_image as main_image %}
+				{% if main_image %}
+					{% image main_image fill-160x100 %}
+				{% endif %}
+			{% endwith %}
+
+			{{ news.intro }}
+			{{ news.body|richtext }}
+		{% endwith %}
+	{% endfor %}
+{% endblock %}

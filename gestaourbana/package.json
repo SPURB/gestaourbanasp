@@ -1,0 +1,38 @@
+{
+  "name": "gestaourbana",
+  "version": "2.0.0",
+  "description": "Para dar transparência aos instrumentos de planejamento e implementar canais e ferramentas de participação social, a Prefeitura de São Paulo, por meio da Secretaria Municipal de Urbanismo e Licenciamento - SMUL, criou em abril de 2013 a plataforma Gestão Urbana SP. O Gestão Urbana SP visa aproximar os cidadãos do poder público, tanto por meio da informação, quanto pelo recebimento de colaborações nos projetos urbanísticos desenvolvidos pela SMUL. ",
+  "main": "mange.py",
+  "scripts": {
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SPURB/gestaourbanasp.git"
+  },
+  "keywords": [
+    "arquitetura",
+    "spurb",
+    "prefeitura",
+    "são",
+    "paulo"
+  ],
+  "author": "SPURB",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/SPURB/gestaourbanasp/issues"
+  },
+  "homepage": "https://github.com/SPURB/gestaourbanasp#readme",
+  "devDependencies": {
+    "babel-loader": "^7.1.2",
+    "babel-minify-webpack-plugin": "^0.2.0",
+    "babel-preset-es2015": "^6.24.1",
+    "css-loader": "^0.28.7",
+    "extract-text-webpack-plugin": "^3.0.0",
+    "optimize-css-assets-webpack-plugin": "^3.2.0",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.18.2",
+    "webpack": "^3.6.0",
+    "webpack-bundle-tracker": "^0.2.0"
+  }
+}
