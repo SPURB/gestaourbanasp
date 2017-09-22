@@ -88,10 +88,12 @@ class NewsPage(Page):
 		('HTML', blocks.RawHTMLBlock()),
 		('Embed', EmbedBlock()),		
 	])
+	
 	subtitulo = models.CharField(max_length=250, blank=True)
-	categorias = ParentalManyToManyField('news.NewsCategory', blank=True)
+	
 	date = models.DateField("Data")
 	tags = ClusterTaggableManager(through=NewsPageTag, blank=True)
+	categorias = ParentalManyToManyField('news.NewsCategory', blank=True)
 
 	search_fields = Page.search_fields + [
 		index.SearchField('subtitulo'),

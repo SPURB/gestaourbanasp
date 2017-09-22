@@ -4,7 +4,8 @@
   "description": "Para dar transparência aos instrumentos de planejamento e implementar canais e ferramentas de participação social, a Prefeitura de São Paulo, por meio da Secretaria Municipal de Urbanismo e Licenciamento - SMUL, criou em abril de 2013 a plataforma Gestão Urbana SP. O Gestão Urbana SP visa aproximar os cidadãos do poder público, tanto por meio da informação, quanto pelo recebimento de colaborações nos projetos urbanísticos desenvolvidos pela SMUL. ",
   "main": "mange.py",
   "scripts": {
-    "build": "webpack"
+    "build": "webpack",
+    "watch": "webpack --watch"
   },
   "repository": {
     "type": "git",

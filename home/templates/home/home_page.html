@@ -1,9 +1,66 @@
 {% extends "base.html" %}
 
 {% load wagtailcore_tags %}
+{% load wagtailimages_tags %}
 
 {% block body_class %}template-homepage{% endblock %}
 
 {% block content %}
-	{{ page.body|richtext }} 
+	{% with headlines=page.headlines.all %}
+		{% if headlines|length == 1 %}
+			{% for headline in headlines %}
+				{% image headline.imagem width-400 as imagem %}
+				<div class="row" style="background-image:url('{{ imagem.url }}')">
+					<div class="headline">
+						<a href="{{ headline.link }}">
+							<h1>{{ headline.titulo }}</h1>
+						</a>
+					</div>
+				</div>
+			{% endfor %}
+		{% endif %}
+		{% if headlines|length == 2 %}
+			<div class="row">
+			{% for headline in headlines %}		
+				{% image headline.imagem width-400 as imagem %}		
+				<div class="headline columns six" style="background-image:url('{{ imagem.url }}')">
+					<a href="{{ headline.link }}">
+						<h1>{{ headline.titulo }}</h1>
+					</a>
+				</div>				
+			{% endfor %}
+			</div>
+		{% endif %}
+		{% if headlines|length >= 3 %}
+			{% for headline in headlines %}
+				{% if forloop.counter == 1 %}
+					{% image headline.imagem width-400 as imagem %}
+					<div class="row">
+						<div class="headline" style="background-image:url('{{ imagem.url }}')">
+							<a href="{{ headline.link }}">
+								<h1>{{ headline.titulo }}</h1>
+							</a>
+						</div>
+					</div>
+				{% endif %}
+				{% if forloop.counter == 2 %}
+					{% image headline.imagem width-400 as imagem %}
+					<div class="row">
+						<div class="headline columns six" style="background-image:url('{{ imagem.url }}')">
+							<a href="{{ headline.link }}">
+								<h1>{{ headline.titulo }}</h1>
+							</a>
+						</div>
+				{% endif %}
+				{% if forloop.counter == 3 %}
+						<div class="headline columns six" style="background-image:url('{{ imagem.url }}')">
+							<a href="{{ headline.link }}">
+								<h1>{{ headline.titulo }}</h1>
+							</a>
+						</div>
+					</div>
+				{% endif %}
+			{% endfor %}
+		{% endif %}
+	{% endwith %}
 {% endblock %}
