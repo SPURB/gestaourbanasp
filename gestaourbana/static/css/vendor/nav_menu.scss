@@ -1,0 +1,153 @@
+
+/* Larger than mobile */
+//@media (min-width: 400px) {}
+
+/* Larger than phablet */
+//@media (min-width: 550px) {}
+
+/* Larger than tablet */
+//@media (min-width: 750px) {}
+ 
+/* Larger than desktop */
+//@media (min-width: 1000px) {}
+
+/* Larger than Desktop HD */
+//@media (min-width: 1200px) {}
+
+$nav-text-default-color: rgb(0,0,0);
+
+// cores de sção
+$nav-first-section-color:rgba(200,0,0, 0.5);
+$nav-first-section-color-hover:rgba(200,0,0, 1);
+
+$nav-second-section-color:rgba(255,131,27, 0.5);
+$nav-second-section-color-hover:rgba(255,131,27, 1);
+
+$nav-third-section-color:rgba(0,170,235, 0.5);
+$nav-third-section-color-hover:rgba(0,170,235, 1);
+
+$nav-fourth-section-color:rgba(50,190,80, 0.5);
+$nav-fourth-section-color-hover:rgba(50,190,80, 1);
+
+$nav-fifth-section-color:rgba(255,200,0, 0.5);
+$nav-fifth-section-color-hover:rgba(255,200,0, 1);
+
+#menu_container>nav{
+	width: 240px;
+	padding:0px;
+		
+	ul{
+		list-style: none;
+		text-decoration: none;
+	}
+
+	li {
+	border-top:1px solid #e2e2e2; 
+	padding:5px 0 0 5px;
+
+	}
+
+	li>a{
+		text-decoration:none;
+		color:$nav-text-default-color;
+		display: block;
+		padding:0;
+		min-height:40px 
+	}
+
+	 ul li{
+		margin:0;
+	}
+
+
+	li.primeiro_nivel{
+		min-height:60px;
+		ul{
+			display:none;
+		}
+		a{
+			height: 100%;
+		}
+	}
+
+	li.segundo_nivel>ul{
+		display:none;
+	}
+
+	li.segundo_terceiro>ul{
+		display:none;
+	}
+
+}
+
+
+/* ============================================================
+nav_menu
+============================================================ */
+.nav_el_common_attributes{
+	margin: 0;
+	border-left: 10px solid;
+	// padding: 15px 0 15px 5px;
+	background-color: rgb(254,254,252);
+	transition: background-color .35s, border-color .35s;
+}
+.nav_el_common_attributes_hover{
+	background-color:rgb(248, 248, 248);
+}
+
+//primeira seção
+#menu_container>nav>ul>li:nth-child(1){
+	@extend .nav_el_common_attributes;
+	border-color:$nav-first-section-color;
+}
+
+#menu_container>nav>ul>li:nth-child(1):hover{
+	@extend .nav_el_common_attributes_hover;
+	border-color:$nav-first-section-color-hover;
+}
+
+//segunda seção
+#menu_container>nav>ul>li:nth-child(2){
+	@extend .nav_el_common_attributes;
+	border-color:$nav-second-section-color;
+}
+
+#menu_container>nav>ul>li:nth-child(2):hover{
+	@extend .nav_el_common_attributes_hover;
+	border-color:$nav-second-section-color-hover;
+}
+
+//terceira seção
+#menu_container>nav>ul>li:nth-child(3){
+	@extend .nav_el_common_attributes;
+	border-color:$nav-third-section-color
+}
+
+#menu_container>nav>ul>li:nth-child(3):hover{
+	@extend .nav_el_common_attributes_hover;
+	border-color:$nav-third-section-color-hover;
+}
+
+//quarta seção
+#menu_container>nav>ul>li:nth-child(4){
+	@extend .nav_el_common_attributes;
+	border-color:$nav-fourth-section-color
+}
+
+#menu_container>nav>ul>li:nth-child(4):hover{
+	@extend .nav_el_common_attributes_hover;
+	border-color:$nav-fourth-section-color-hover;
+}
+
+//quinta-seção
+#menu_container>nav>ul>li:nth-child(5){
+	@extend .nav_el_common_attributes;	
+	border-color:$nav-fifth-section-color
+}
+
+#menu_container>nav>ul>li:nth-child(5):hover{
+	@extend .nav_el_common_attributes_hover;
+	border-color:$nav-fifth-section-color-hover;
+}
+
+

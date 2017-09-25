@@ -7,6 +7,7 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
     <head>
+        <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon"> <!-- remove request de favicon -->
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <title>
@@ -28,10 +29,16 @@
 
     <body class="{% block body_class %}{% endblock %}">
         {% wagtailuserbar %}
-        <div class="container">
-            {% block content %}{% endblock %}
-        </div>
+        <!-- navegação -->
+        {% include 'nav_menu.html' %}
+
+        {% block content %}{% endblock %}
+
         {# Main JavaScript #}
-        <script src="{% static 'js/bundle.min.js' %}"></script>
+        <!-- <script type="text/javascript" src="{% static 'js/bundle.min.js' %}"></script> -->
+        <script type="text/javascript" src="{% static 'js/vendor/jquery-3.2.1.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/src/nav_menu.js' %}"></script>
     </body>
+
+   
 </html>
