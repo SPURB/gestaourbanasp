@@ -11,6 +11,8 @@ from wagtail.wagtailcore.models import Orderable
 from wagtail.wagtailcore.models import Page
 from wagtail.wagtailimages.edit_handlers import ImageChooserPanel
 
+from news.models import NewsPage
+
 
 class HomePage(Page):
 
@@ -59,6 +61,14 @@ class HomePage(Page):
 				]
 			),
 		]
+
+	def get_context(self, request):
+		# Update context to include only the last six last published news,
+		# ordered by reverse chronological order.
+		context = super(HomePage, self).get_context(request)
+		newspages = NewsPage.objects.live().order_by('-first_published_at')[:6]
+		context['newspages'] = newspages
+		return context
 
 	content_panels = [
 		InlinePanel(
