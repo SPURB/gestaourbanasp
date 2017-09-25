@@ -29,9 +29,7 @@ INSTALLED_APPS = [
     'home',
     'search',
     'news',
-
     'webpack_loader',
-
     'wagtail.wagtailforms',
     'wagtail.wagtailredirects',
     'wagtail.wagtailembeds',
