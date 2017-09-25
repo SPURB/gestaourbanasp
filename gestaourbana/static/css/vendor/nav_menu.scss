@@ -44,7 +44,6 @@ $nav-fifth-section-color-hover:rgba(255,200,0, 1);
 	li {
 	border-top:1px solid #e2e2e2; 
 	padding:5px 0 0 5px;
-
 	}
 
 	li>a{
@@ -60,34 +59,37 @@ $nav-fifth-section-color-hover:rgba(255,200,0, 1);
 	}
 
 
-	li.primeiro_nivel{
+	.primeiro_nivel{
 		min-height:60px;
-		ul{
-			display:none;
-		}
 		a{
 			height: 100%;
 		}
+		ul{
+			margin:0 0 0 15px
+		}
 	}
-
-	li.segundo_nivel>ul{
-		display:none;
+	.segundo_nivel:hover{
+		background-color:yellow;
 	}
-
-	li.segundo_terceiro>ul{
-		display:none;
+	.terceiro_nivel:hover{
+		background-color:green;
 	}
-
+	.quarto_nivel:hover{
+		background-color: blue;
+	}
 }
-
 
 /* ============================================================
 nav_menu
 ============================================================ */
+.nav_hide{
+	display:none
+}
+
 .nav_el_common_attributes{
 	margin: 0;
 	border-left: 10px solid;
-	// padding: 15px 0 15px 5px;
+	padding: 15px 0 0 5px;
 	background-color: rgb(254,254,252);
 	transition: background-color .35s, border-color .35s;
 }
