@@ -1,22 +1,4 @@
-
-/* Larger than mobile */
-//@media (min-width: 400px) {}
-
-/* Larger than phablet */
-//@media (min-width: 550px) {}
-
-/* Larger than tablet */
-//@media (min-width: 750px) {}
- 
-/* Larger than desktop */
-//@media (min-width: 1000px) {}
-
-/* Larger than Desktop HD */
-//@media (min-width: 1200px) {}
-
-$nav-text-default-color: rgb(0,0,0);
-
-// cores de sção
+// CORES POR SEÇÃO
 $nav-first-section-color:rgba(200,0,0, 0.5);
 $nav-first-section-color-hover:rgba(200,0,0, 1);
 
@@ -33,68 +15,60 @@ $nav-fifth-section-color:rgba(255,200,0, 0.5);
 $nav-fifth-section-color-hover:rgba(255,200,0, 1);
 
 #menu_container>nav{
+	#logo{
+		width: 240px;
+		height: 100px;
+	}
+
 	width: 240px;
 	padding:0px;
-		
+	font-size:1.2em;
+
 	ul{
 		list-style: none;
 		text-decoration: none;
 	}
 
 	li {
-	border-top:1px solid #e2e2e2; 
-	padding:5px 0 0 5px;
-	}
+		border-top:1px solid #e2e2e2; 
+		padding:5px;
 
-	li>a{
-		text-decoration:none;
-		color:$nav-text-default-color;
-		display: block;
-		padding:0;
-		min-height:40px 
-	}
-
-	 ul li{
-		margin:0;
-	}
-
-
-	.primeiro_nivel{
-		min-height:60px;
-		a{
-			height: 100%;
-		}
 		ul{
-			margin:0 0 0 15px
+			margin: 0 0 0 15px;
 		}
 	}
-	.segundo_nivel:hover{
-		background-color:yellow;
-	}
-	.terceiro_nivel:hover{
-		background-color:green;
-	}
-	.quarto_nivel:hover{
-		background-color: blue;
-	}
-}
 
-/* ============================================================
-nav_menu
-============================================================ */
-.nav_hide{
-	display:none
+	.nav-menu input[type=checkbox] {
+		position: absolute;
+		opacity: 0;
+		margin: 0;
+		padding: 0;
+
+	}
+	.nav-menu label, .nav-menu a {
+		position: relative;
+		display: block;
+	    cursor: pointer;
+	}
+
+	.nav-menu ul {
+		display: none;
+	}
+	 
+	.nav-menu input[type=checkbox]:checked + label + ul,
+	.nav-menu input[type=checkbox]:checked + label:nth-of-type(n) + ul {
+		display: block;
+	}
 }
 
 .nav_el_common_attributes{
 	margin: 0;
 	border-left: 10px solid;
-	padding: 15px 0 0 5px;
-	background-color: rgb(254,254,252);
 	transition: background-color .35s, border-color .35s;
-}
-.nav_el_common_attributes_hover{
-	background-color:rgb(248, 248, 248);
+
+	ul>li{
+		margin:0
+	}
 }
 
 //primeira seção
@@ -104,7 +78,6 @@ nav_menu
 }
 
 #menu_container>nav>ul>li:nth-child(1):hover{
-	@extend .nav_el_common_attributes_hover;
 	border-color:$nav-first-section-color-hover;
 }
 
@@ -115,7 +88,6 @@ nav_menu
 }
 
 #menu_container>nav>ul>li:nth-child(2):hover{
-	@extend .nav_el_common_attributes_hover;
 	border-color:$nav-second-section-color-hover;
 }
 
@@ -126,7 +98,6 @@ nav_menu
 }
 
 #menu_container>nav>ul>li:nth-child(3):hover{
-	@extend .nav_el_common_attributes_hover;
 	border-color:$nav-third-section-color-hover;
 }
 
@@ -137,7 +108,6 @@ nav_menu
 }
 
 #menu_container>nav>ul>li:nth-child(4):hover{
-	@extend .nav_el_common_attributes_hover;
 	border-color:$nav-fourth-section-color-hover;
 }
 
@@ -148,8 +118,5 @@ nav_menu
 }
 
 #menu_container>nav>ul>li:nth-child(5):hover{
-	@extend .nav_el_common_attributes_hover;
 	border-color:$nav-fifth-section-color-hover;
 }
-
-

@@ -1,15 +1,21 @@
-$(document).ready(function(){
-	var niveis = ['.primeiro_nivel','.segundo_nivel','.terceiro_nivel','.quarto_nivel'];
+jQuery(document).ready(function(){
+	var nav_menu = $('.nav-menu');
+	if( nav_menu.length > 0 ) {
+		nav_menu.each(function(){
+			var accordion = $(this);
+			//detecta alterações em input[type="checkbox"]
 
-	// hide onload
-	for (var j = 0; niveis.length>j; j++){
-		$(niveis[j]).children('ul').addClass('nav_hide');
-	}
-
-	// toggle hide
-	for (var i = 0; niveis.length>i; i++){
-		$(niveis[i]).click(function(){
-			$(this).children('ul').toggleClass('nav_hide');
+			accordion.on('change', 'input[type="checkbox"]', function(){
+				var checkbox = $(this);
+				// console.log(checkbox.prop('checked'));
+				( checkbox.prop('checked') ) ? checkbox.siblings('ul').attr('style', 'display:none;').slideDown(300) : checkbox.siblings('ul').attr('style', 'display:block;').slideUp(300);
+				// if (checkbox.prop('checked')){
+				// 	checkbox.siblings('ul').attr('style', 'display:none;').slideDown(300);
+				// }
+				// else{
+				// 	checkbox.siblings('ul').attr('style', 'display:block;').slideUp(300);
+				// }
+			});
 		});
 	}
 });
