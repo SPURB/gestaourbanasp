@@ -1,3 +1,142 @@
+@import '../vendor/font-awesome.scss';
 @import '../vendor/normalize.scss';
 @import '../vendor/skeleton.scss';
 @import '../vendor/nav_menu.scss';
+
+/* 
+ * Variables
+ */ 
+
+$main-color: rgba(215, 50, 47, 1);
+$main-text-color: rgba(51, 51, 51, 1);
+$secondary-text-color: rgba(151, 151, 151, 1);
+
+$category-red: rgba(200, 25, 23, 1);
+$category-pink: rgba(192, 67, 145, 1);
+$category-yellow: rgba(254, 204, 3, 1);
+$category-cyan: rgba(31, 172, 227, 1);
+$category-green: rgba(71, 174, 83, 1);
+
+$title-font: "Roboto", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$text-font: "Georgia", Times, "Times New Roman", serif;
+
+/*
+ * Base
+ */
+
+a {
+	color: $main-color;
+	text-decoration: none;
+	transition: color 100ms ease-in;
+
+	&:hover {
+		color: lighten($main-color, 25%);
+	}
+}
+
+p,
+span,
+ul li {
+	color: $main-text-color;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	color: $main-color;
+}
+
+/*
+ * Header
+ */
+
+header {
+	font-size: 1em;
+
+	p {
+		margin-bottom: 0;
+		text-align: right;
+		line-height: 30px;
+
+		i {
+			display: inline-block;
+			padding-right: .5em;
+		}	
+	}
+
+	a {
+		color: $main-text-color;
+
+		&:hover {
+			color: lighten($main-text-color, 25%);
+		}
+	}
+
+	#logos {
+		display: inline-block;
+
+		img {
+			height: 30px;
+		}		
+	}
+
+	#languages {
+		display: inline-block;
+		margin-bottom: 0;
+		margin-left: 1.5em;
+
+		li {
+			display: inline-block;
+			margin-bottom: 0;
+			line-height: 30px;
+
+			a {
+				display: inline-block;
+				border-right: 1px solid $secondary-text-color;
+				margin-right: .5em;
+				padding-right: .5em;
+			}
+
+			&:last-of-type {
+				a {
+					border-right: none;
+					margin-right: 0;
+					padding-right: 0;
+				}
+			}
+		}
+	}
+
+	.columns {
+		padding: 1.5em 0;
+
+		&.nine {
+			display: flex;
+		}
+	}
+}
+
+/*
+ * Footer
+ */
+
+footer {
+	font-size: 1em;
+	color: $main-text-color;
+
+	ul {
+		list-style-type: none;
+
+		&#social-media li {
+			display: inline-block;
+			padding-right: 1.5em;
+		}
+	}
+
+	img {
+		width: 90%;
+	}
+}

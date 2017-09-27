@@ -1,5 +1,4 @@
 {% load static wagtailuserbar %}
-{% load render_bundle from webpack_loader %}
 
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
@@ -31,9 +30,11 @@
         {% wagtailuserbar %}
         <!-- navegação -->
         {% include 'nav_menu.html' %}
-
-        {% block content %}{% endblock %}
-
+        <div class="container">
+            {% include "includes/header.html" %}
+            {% block content %}{% endblock %}
+            {% include "includes/footer.html" %}
+        </div>
         {# Main JavaScript #}
         <!-- <script type="text/javascript" src="{% static 'js/bundle.min.js' %}"></script> -->
         <script type="text/javascript" src="{% static 'js/vendor/jquery-3.2.1.min.js' %}"></script>

@@ -48,6 +48,8 @@ Para o desenvolvimento serão necessárias duas janelas do terminal:
 ```
 
 # Na pasta inicial do projeto:
+virtualenv env # criar o ambiente virtual
+env\Scripts\activate # ativar o ambiente virtual
 python manage.py runserver # roda o servidor
 
 ```

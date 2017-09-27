@@ -31,7 +31,7 @@ class NewsIndexPage(Page):
 	]
 
 	def get_context(self, request):
-		# Update context to include only published posts,
+		# Update context to include only published news,
 		# ordered by reverse chronological order.
 		context = super(NewsIndexPage, self).get_context(request)
 		newspages = self.get_children().live().order_by('-first_published_at')
