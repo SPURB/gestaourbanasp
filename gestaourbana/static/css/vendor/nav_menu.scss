@@ -1,76 +1,51 @@
-// CORES POR SEÇÃO
-$nav-first-section-color:rgba(200,0,0, 0.5);
-$nav-first-section-color-hover:rgba(200,0,0, 1);
-
-$nav-second-section-color:rgba(255,131,27, 0.5);
-$nav-second-section-color-hover:rgba(255,131,27, 1);
-
-$nav-third-section-color:rgba(0,170,235, 0.5);
-$nav-third-section-color-hover:rgba(0,170,235, 1);
-
-$nav-fourth-section-color:rgba(50,190,80, 0.5);
-$nav-fourth-section-color-hover:rgba(50,190,80, 1);
-
-$nav-fifth-section-color:rgba(255,200,0, 0.5);
-$nav-fifth-section-color-hover:rgba(255,200,0, 1);
-
-#menu_container>nav{
-	#logo{
-		width: 240px;
-		height: 100px;
-	}
-
-	width: 240px;
+#menu_container{
 	padding:0px;
-	font-size:1.2em;
-
-	ul{
+	ul li{
 		list-style: none;
 		text-decoration: none;
 	}
-
 	li {
-		border-top:1px solid #e2e2e2; 
+		border-top:1px solid $nav-hairline; 
 		padding:5px;
-
 		ul{
 			margin: 0 0 0 15px;
 		}
+		label, a{
+			min-height: 45px;
+		}
 	}
-
+	#logo{
+		width: 150px;
+		height: 81px;
+		padding-left: 14px;
+	}
 	.nav-menu input[type=checkbox] {
 		position: absolute;
 		opacity: 0;
 		margin: 0;
 		padding: 0;
-
 	}
 	.nav-menu label, .nav-menu a {
 		position: relative;
 		display: block;
 	    cursor: pointer;
 	}
-
 	.nav-menu ul {
 		display: none;
 	}
-	 
 	.nav-menu input[type=checkbox]:checked + label + ul,
 	.nav-menu input[type=checkbox]:checked + label:nth-of-type(n) + ul {
 		display: block;
 	}
 }
-
 .nav_el_common_attributes{
 	margin: 0;
 	border-left: 10px solid;
 	transition: background-color .35s, border-color .35s;
-
 	ul>li{
 		margin:0
 	}
 }
-
 //primeira seção
 #menu_container>nav>ul>li:nth-child(1){
 	@extend .nav_el_common_attributes;
@@ -119,4 +94,42 @@ $nav-fifth-section-color-hover:rgba(255,200,0, 1);
 
 #menu_container>nav>ul>li:nth-child(5):hover{
 	border-color:$nav-fifth-section-color-hover;
+}
+
+/* Media queries
+/* Larger than Desktop HD */
+@media (min-width: 1220px) {
+	body{
+		max-width: 1220px;
+		margin: 0 auto;
+	}
+	#menu_container{
+		position: fixed;
+		width: 240px;
+		border-right: solid 1px $nav-hairline;
+		height: 100%;
+		overflow-y:auto;
+		font-size: 1em;
+	}
+	#menu_container>nav{
+		margin-right: 20px;
+		min-height: 100%;
+		padding-bottom: 235px;
+		position:relative;
+		box-sizing:border-box;
+		#rodape{
+			position:absolute;
+			bottom: 0;
+			box-sizing: border-box;
+			width: 100%;
+			padding: 20px 0;
+			li{
+				border:0;
+				padding:0;
+			}
+		}
+	}
+	div.container{
+		margin: 0 0 0 auto;
+	}
 }

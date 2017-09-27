@@ -28,8 +28,8 @@
 
     <body class="{% block body_class %}{% endblock %}">
         {% wagtailuserbar %}
-        <!-- navegação -->
-        {% include 'nav_menu.html' %}
+        {% include 'includes/nav_menu.html' %}<!-- navegação -->
+
         <div class="container">
             {% include "includes/header.html" %}
             {% block content %}{% endblock %}
