@@ -129,6 +129,10 @@ footer {
 	ul {
 		list-style-type: none;
 
+		li {
+			margin-bottom: 0;
+		}
+
 		&#social-media li {
 			display: inline-block;
 			padding-right: 1.5em;

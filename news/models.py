@@ -109,3 +109,6 @@ class NewsPage(Page):
 			FieldPanel('categorias', widget=forms.CheckboxSelectMultiple)
 		], heading="Marcadores da Notícia"),
 	]
+
+	def get_absolute_url(self):
+		return 'noticias/%i' % self.id
