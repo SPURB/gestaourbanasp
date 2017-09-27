@@ -51,7 +51,6 @@
 	@extend .nav_el_common_attributes;
 	border-color:$nav-first-section-color;
 }
-
 #menu_container>nav>ul>li:nth-child(1):hover{
 	border-color:$nav-first-section-color-hover;
 }
@@ -61,7 +60,6 @@
 	@extend .nav_el_common_attributes;
 	border-color:$nav-second-section-color;
 }
-
 #menu_container>nav>ul>li:nth-child(2):hover{
 	border-color:$nav-second-section-color-hover;
 }
@@ -71,7 +69,6 @@
 	@extend .nav_el_common_attributes;
 	border-color:$nav-third-section-color
 }
-
 #menu_container>nav>ul>li:nth-child(3):hover{
 	border-color:$nav-third-section-color-hover;
 }
