@@ -1,6 +1,7 @@
 const MinifyPlugin = require("babel-minify-webpack-plugin");
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const Webpack = require("webpack");
 
 module.exports = {
 	entry: "./static/js/src/index.js",
@@ -38,6 +39,11 @@ module.exports = {
 		}),
 		new OptimizeCssAssetsPlugin({
 			cssProcessorOptions: { discardComments: { removeAll: true } }
-		})
+		}),
+		new Webpack.ProvidePlugin({
+            $: "jquery",
+            jquery: "jquery",
+            jQuery: "jquery"
+        })
 	 ]
 }
