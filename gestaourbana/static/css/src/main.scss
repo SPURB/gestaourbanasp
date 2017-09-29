@@ -2,22 +2,9 @@
 @import '../vendor/normalize.scss';
 @import '../vendor/skeleton.scss';
 
-/* 
- * Variables
- */ 
+@import './variables.scss';
+@import './nav_menu.scss';
 
-$main-color: rgba(215, 50, 47, 1);
-$main-text-color: rgba(51, 51, 51, 1);
-$secondary-text-color: rgba(151, 151, 151, 1);
-
-$category-red: rgba(200, 25, 23, 1);
-$category-pink: rgba(192, 67, 145, 1);
-$category-yellow: rgba(254, 204, 3, 1);
-$category-cyan: rgba(31, 172, 227, 1);
-$category-green: rgba(71, 174, 83, 1);
-
-$title-font: "Roboto", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
-$text-font: "Georgia", Times, "Times New Roman", serif;
 
 /*
  * Base

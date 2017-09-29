@@ -1,0 +1,140 @@
+#menu_container{
+	padding:0px;
+	ul li{
+		list-style: none;
+		text-decoration: none;
+	}
+	li {
+		border-top:1px solid $nav-hairline; 
+		padding:5px;
+		cursor: pointer;
+		min-height: 45px;
+		ul{
+			margin: 0 0 0 15px;
+		}
+	}
+	#logo{
+		width: 150px;
+		height: 81px;
+		padding-left: 14px;
+	}
+
+	// peekaboo for listitems
+	.expansor ~ ul{
+		display:none;
+	}
+	ul.expanded{
+		display:block;
+	}
+}
+
+.nav_itens_common{
+	margin: 0;
+	border-left: 10px solid;
+	transition: background-color .35s, border-color .35s;
+}
+
+//primeira seção
+#nav-0{
+	@extend .nav_itens_common;
+	border-color:$nav-first-section-color;
+}
+#nav-0:hover{
+	border-color:$nav-first-section-color-hover;
+}
+#nav-0 ul>li{
+	border-top:1px solid pink; 
+}
+
+
+//segunda seção
+#nav-1{
+	@extend .nav_itens_common;
+	border-color:$nav-second-section-color;
+}
+#nav-1:hover{
+	border-color:$nav-second-section-color-hover;
+}
+
+//terceira seção
+#nav-2{
+	@extend .nav_itens_common;
+	border-color:$nav-third-section-color
+}
+#nav-2:hover{
+	border-color:$nav-third-section-color-hover;
+}
+
+// //quarta seção
+#nav-3{
+	@extend .nav_itens_common;
+	border-color:$nav-fourth-section-color
+}
+
+#nav-3:hover{
+	border-color:$nav-fourth-section-color-hover;
+}
+
+// //quinta-seção
+#nav-4{
+	@extend .nav_itens_common;	
+	border-color:$nav-fifth-section-color
+}
+
+#nav-4:hover{
+	border-color:$nav-fifth-section-color-hover;
+}
+
+/* Media queries
+/* Mobile first queries */
+
+/* Larger than mobile */
+@media (min-width: 400px) {}
+
+/* Larger than phablet */
+@media (min-width: 550px) {}
+
+/* Larger than tablet */
+@media (min-width: 750px) {}
+
+/* Larger than desktop */
+@media (min-width: 1000px) {}
+
+
+/* Larger than Desktop HD */
+@media (min-width: 1220px) {
+	body{
+		max-width: 1220px;
+		margin: 0 auto;
+	}
+	#menu_container{
+		position: fixed;
+		width: 240px;
+		border-right: solid 1px $nav-hairline;
+		height: 100%;
+		overflow-y:auto;
+		font-size: 1.1em;
+	}
+	#menu_container>nav{
+		margin-right: 20px;
+		min-height: 100%;
+		padding-bottom: 235px;
+		position:relative;
+		box-sizing:border-box;
+		#rodape{
+			position:absolute;
+			bottom: 0;
+			box-sizing: border-box;
+			width: 100%;
+			padding: 20px 0;
+			li{
+				border:0;
+				padding:0;
+				min-height:25px; 
+			}
+		}
+	}
+	div.container{
+		margin: 0 0 0 auto;
+	}
+}
