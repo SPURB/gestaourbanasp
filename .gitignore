@@ -156,3 +156,8 @@ style.min.css
 bundle.min.js
 fonts/
 !font-awesome/
+
+# DB
+migrations/*.py
+db.sqlite3
+media/*

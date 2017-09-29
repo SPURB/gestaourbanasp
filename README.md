@@ -15,7 +15,7 @@ Para dar transparência aos instrumentos de planejamento e implementar canais e 
 
 ### Pré-requisitos do sistema
 
-- Python 2.7 ([link](https://www.python.org/downloads/))
+- Python 3.6 ([link](https://www.python.org/downloads/))
 - pip ([link](https://pypi.python.org/pypi/pip/))
 - virtualenv ([link](https://pypi.python.org/pypi/virtualenv/))
 

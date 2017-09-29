@@ -70,10 +70,11 @@ class HomePage(Page):
 		context['newspages'] = newspages
 		return context
 
-	content_panels = [
+	content_panels = Page.content_panels + [
 		InlinePanel(
 			'headlines',
 			label="Manchetes",
 			help_text="As três primeiras manchetes descritas nesta página serão renderizadas em ordem. Qualquer manchete além da terceira não será renderizada.")
 	]
+
 
