@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% block body_class %}template-blogindexpage{% endblock %}
+
+{% block content %}
+	<h1>{{ page.title }}</h1>
+	<div class="intro">{{ page.resumo|richtext }}</div>
+
+	{% for pages in categorypages %}
+		{% with pages=pages.specific %}
+			<h2><a href="{% pageurl pages %}">{{ pages.title }}</a></h2>
+		{% endwith %}
+	{% endfor %}
+
+	{% for pages in newspages %}
+		{% with pages=pages.specific %}
+			<h2><a href="{% pageurl pages %}">{{ pages.title }}</a></h2>
+		{% endwith %}
+	{% endfor %}
+{% endblock %}

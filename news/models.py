@@ -14,6 +14,8 @@ from wagtail.wagtailembeds.blocks import EmbedBlock
 from wagtail.wagtailimages.edit_handlers import ImageChooserPanel
 from wagtail.wagtailsearch import index
 
+from categories.models import Categories
+
 
 class NewsIndexPage(Page):
 
@@ -77,10 +79,19 @@ class NewsPage(Page):
 		related_name='+',
 		help_text="A imagem principal da notícia."
 	)
+
 	legenda = models.CharField(
 		blank=True, 
 		max_length=250,
 		help_text="A legenda da imagem principal."
+	)
+
+	categoria = models.ForeignKey(
+		Categories, 
+		null=True,
+		blank=True,
+		on_delete=models.PROTECT,
+		default=0
 	)
 
 	date = models.DateField("Data")
@@ -98,7 +109,8 @@ class NewsPage(Page):
 		], heading="Imagem Principal"),
 		StreamFieldPanel('corpo'),
 		MultiFieldPanel([
-			FieldPanel('date')
+			FieldPanel('date'),
+			FieldPanel('categoria', widget=forms.RadioSelect())
 		], heading="Marcadores da Notícia")        
 	]
 

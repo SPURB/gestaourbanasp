@@ -2,7 +2,10 @@ from __future__ import absolute_import, unicode_literals
 
 from modelcluster.fields import ParentalKey
 
+from django import forms
 from django.db import models
+
+from colorful.fields import RGBColorField
 
 from wagtail.wagtailadmin.edit_handlers import FieldPanel
 from wagtail.wagtailadmin.edit_handlers import InlinePanel
@@ -10,8 +13,10 @@ from wagtail.wagtailadmin.edit_handlers import MultiFieldPanel
 from wagtail.wagtailcore.models import Orderable
 from wagtail.wagtailcore.models import Page
 from wagtail.wagtailimages.edit_handlers import ImageChooserPanel
+from wagtail.wagtailsnippets.models import register_snippet
 
 from news.models import NewsPage
+from categories.models import Categories
 
 
 class HomePage(Page):
@@ -50,6 +55,14 @@ class HomePage(Page):
 			help_text="O link para onde a manchete irá redirecionar o usuário."
 		)
 
+		categoria = models.ForeignKey(
+			Categories, 
+			null=True,
+			blank=True,
+			on_delete=models.PROTECT,
+			default=0
+		)
+
 		page = ParentalKey('HomePage', related_name='headlines')
 
 		panels = [
@@ -57,7 +70,8 @@ class HomePage(Page):
 				[
 					FieldPanel('titulo'),
 					ImageChooserPanel('imagem'),
-					FieldPanel('link')
+					FieldPanel('link'),
+					FieldPanel('categoria', widget=forms.RadioSelect())
 				]
 			),
 		]
