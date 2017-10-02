@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% load wagtailcore_tags %}
+{% load wagtailimages_tags %}
+
+{% block body_class %}template-homepage{% endblock %}
+
+{% block content %}
+	{% with events=page.events.all %}
+		<ul>
+			{% for event in events %}
+			<li>
+				<h1>{{ event.titulo }}</h1>
+				<p>Horário: {{ event.horario_inicio }} - {{ event.horario_final }}</p>
+				<p>Data: {{ event.data_inicio }} - {{ event.data_final }}</p>
+				<p>Local: {{ event.endereco }}</p>
+			</li>
+			{% endfor %}
+		</ul>
+	{% endwith %}
+{% endblock %}

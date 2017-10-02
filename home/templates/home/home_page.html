@@ -63,7 +63,8 @@
 			{% endfor %}
 		{% endif %}
 	{% endwith %}
-
+	
+	<h1>Notícias</h1>
 	{% for news in newspages %}
 		{% with news=news.specific %}
 			<h2><a href="{% pageurl news %}">{{ news.title }}</a></h2>
@@ -77,6 +78,20 @@
 			{{ news.intro }}
 			{{ news.body|richtext }}
 		{% endwith %}
+	{% endfor %}
+
+	<h1>Eventos</h1>
+	{% for event in events %}
+		<ul>
+			{% for event in events %}
+			<li>
+				<h1 id="{{ event.slug }}">{{ event.titulo }}</h1>
+				<p>Horário: {{ event.horario_inicio }} - {{ event.horario_final }}</p>
+				<p>Data: {{ event.data_inicio }} - {{ event.data_final }}</p>
+				<p>Local: {{ event.endereco }}</p>
+			</li>
+			{% endfor %}
+		</ul>
 	{% endfor %}
 
 {% endblock %}

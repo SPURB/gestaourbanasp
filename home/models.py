@@ -16,6 +16,7 @@ from wagtail.wagtailimages.edit_handlers import ImageChooserPanel
 from wagtail.wagtailsnippets.models import register_snippet
 
 from news.models import NewsPage
+from events.models import Events
 from categories.models import Categories
 
 
@@ -80,8 +81,15 @@ class HomePage(Page):
 		# Update context to include only the last six last published news,
 		# ordered by reverse chronological order.
 		context = super(HomePage, self).get_context(request)
+
 		newspages = NewsPage.objects.live().order_by('-first_published_at')[:6]
 		context['newspages'] = newspages
+
+		print (Events.objects.all())
+
+		events = Events.objects.all()[:3]
+		context['events'] = events
+
 		return context
 
 	content_panels = Page.content_panels + [
