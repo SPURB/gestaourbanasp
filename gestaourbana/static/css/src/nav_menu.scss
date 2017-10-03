@@ -1,54 +1,73 @@
-.nav_itens_common{
+.nav_itens_common {
 	margin: 0;
 	border-left: 10px solid;
 	transition: background-color .35s, border-color .35s;
 }
-
 //primeira seção
-#nav-0{
+#nav-0 {
 	@extend .nav_itens_common;
 	border-color:$nav-first-section-color;
 }
-#nav-0:hover{
+#nav-0:hover {
 	border-color:$nav-first-section-color-hover;
 }
 
 //segunda seção
-#nav-1{
+#nav-1 {
 	@extend .nav_itens_common;
 	border-color:$nav-second-section-color;
 }
-#nav-1:hover{
+#nav-1:hover {
 	border-color:$nav-second-section-color-hover;
 }
 
 //terceira seção
-#nav-2{
+#nav-2 {
 	@extend .nav_itens_common;
 	border-color:$nav-third-section-color
 }
-#nav-2:hover{
+#nav-2:hover {
 	border-color:$nav-third-section-color-hover;
 }
 
 //quarta seção
-#nav-3{
+#nav-3 {
 	@extend .nav_itens_common;
 	border-color:$nav-fourth-section-color
 }
-#nav-3:hover{
+#nav-3:hover {
 	border-color:$nav-fourth-section-color-hover;
 }
 
 // //quinta-seção
-#nav-4{
+#nav-4 {
 	@extend .nav_itens_common;	
 	border-color:$nav-fifth-section-color
 }
-#nav-4:hover{
+#nav-4:hover {
 	border-color:$nav-fifth-section-color-hover;
 }
 
+// mobile first. Hide logo screen < 550px
+header .columns.nine > #pmsp{
+	display: none;
+}
+header.row{
+	padding-bottom:52px;
+}
+header .columns.nine{
+	max-width: 160px;
+	position: absolute;
+	top:25px;
+	left: 7.5%;
+}
+header .three.columns{
+	margin-left: 0;
+	position: absolute;
+	max-width: 122px;
+	top: 25px;
+	right: 7.5%;
+}
 
 #menu_container{
 	width: 90%;
@@ -67,11 +86,10 @@
 			margin: 0 0 0 15px;
 		}
 	}
-	#logo{
-		padding:29px 0 20px 0;
+	li:focus{
+		background-color:$main-color-focus;	
 	}
-
-	// peekaboo for listitems
+	// peekaboo for sublistitens
 	.expansor ~ ul{
 		display:none;
 		overflow: hidden;
@@ -79,74 +97,112 @@
 	ul.expanded{
 		display:block;
 	}
-
-	#rodape{
-		li{
-			float: left;
-			border:0;
-			padding-right:15px;
-			min-height:25px;
+}
+#logo{
+	padding:1.2em 0;
+	a {
+		img {
+			width: 50%;
 		}
 	}
-
 }
 
-/* Media queries */
-/* Smaller than mobile */
-@media (max-width: 400px) {
-	header .columns.nine > #logos{
+#menu_container .menu_btn{
+	position:absolute;
+	top: 0;
+	right: 7.5%;
+	margin-top:1em;
+	background-color: $main-color;
+	border-color: $main-color;
+	i.fa,i.fa-times{
+		font-size: 1.5em;
+	}
+	span{
 		display: none;
+		color:#FFF
 	}
+	.open{
+		display: block;
+	}
+}
 
-	header.row{
-		margin-bottom:52px;	
+#menu_container .menu_btn:hover{
+	background-color: $main-color-hover;
+	border-color: $main-color-hover;
+}
+
+#rodape{
+	li{
+		float: left;
+		border:0;
+		padding-right:15px;
+		min-height:25px;
 	}
+}
+
+#menu_container #rodape #termos-contato li{
+	padding-left:0;
+}
+#menu_container #rodape #social-media li{
+	float: right;
+	margin: 0 0 0 30px;
+	padding:0;
+}
+#menu_container{
+	width: 85%;
+	nav {
+		#nav-menu{
+			overflow: hidden;
+			margin-bottom: 0px;
+			padding-bottom: 25px;
+			border-bottom: solid 1px $nav-hairline;
+		}
+	}
+}
+
+// toggle classes
+.nav-closed{
+	display:none
+}
+
+/* mediaqueries */
+@media (min-width: 400px) {
 	header .columns.nine{
-		max-width: 160px;
-		position: absolute;
-		top:25px;
 		left: 0;
 	}
-
-	header div.three.columns{
-		margin-left: 0;
-		position: absolute;
-		max-width: 122px;
-		top: 25px;
-		right: 5%;
-	}
-
-	#menu_container #rodape #termos-contato li{
-		padding-left:0;
-	}
-	#menu_container #rodape #social-media li{
-		float: right;
-		padding-right:0;
-		padding-left:15px;
-	}
-
-	#menu_container{
-		width: 85%;
-		nav {
-			#nav-menu{
-				margin-bottom: 0px;
-				padding-bottom: 25px;
-				border-bottom: solid 1px $nav-hairline;
-			}
-		}
+	header .three.columns{
+		right: 0;
 	}
 }
 
-
-/* Larger than phablet */
 @media (min-width: 550px) {
 	#menu_container{
 		width: 80%;
+		button.menu_btn{
+			right: 10%;
+		}
 	}
 }
 
-/* Larger than tablet */
 @media (min-width: 750px) {
+	header .columns.nine > #pmsp{
+		display: block;
+	}
+	header.row{
+		margin-bottom:0;
+	}
+
+	header .columns.nine{
+		position: relative;
+		max-width: 320px;
+		ul#languages{
+			margin-left: 20px;
+		}
+	}
+	header .three.columns{
+		margin-left: 0;
+	}
+
 	body{
 		max-width: 750px;
 		margin: 0 auto;
@@ -164,6 +220,19 @@
 		overflow-y:auto;
 		font-size: 1.1em;
 	}
+	#logo{
+		padding:29px 0 20px 0;
+		a img{
+			width: 201px;
+		}
+	}
+
+	#menu_container #rodape #social-media li{
+		float: left;
+		margin: 0 30px 0 0;
+		padding:0;
+	}
+
 	#menu_container>nav{
 		margin-right: 20px;
 		min-height: 100%;
@@ -181,9 +250,11 @@
 			}
 		}
 	}
+	.menu_btn{
+		display: none;
+	}
 }
 
-/* Larger than desktop */
 @media (min-width: 1000px) {
 	body{
 		max-width: 1000px;
@@ -194,7 +265,6 @@
 	}
 }
 
-/* Larger than Desktop HD */
 @media (min-width: 1200px) {
 	body{
 		max-width: 1200px;

@@ -2,17 +2,14 @@ $title-font: "Roboto", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans
 $text-font: "Georgia", Times, "Times New Roman", serif;
 
 $main-color: rgba(215, 50, 47, 1);
+$main-color-hover: rgba(215, 50, 47, 0.5);
+$main-color-focus: rgba(180, 180, 180, 0.25);
+
 $main-text-color: rgba(51, 51, 51, 1);
 $secondary-text-color: rgba(151, 151, 151, 1);
-$category-red: rgba(200, 25, 23, 1);
-$category-pink: rgba(192, 67, 145, 1);
-$category-yellow: rgba(254, 204, 3, 1);
-$category-cyan: rgba(31, 172, 227, 1);
-$category-green: rgba(71, 174, 83, 1);
 
 $nav-hairline: #e2e2e2;
 
-// CORES POR SEÇÃO
 $nav-first-section-color:rgba(200,0,0, 1);
 $nav-first-section-color-hover:rgba(200,0,0, 0.5);
 
@@ -22,8 +19,8 @@ $nav-second-section-color-hover:rgba(255,131,27, 0.5);
 $nav-third-section-color:rgba(0,170,235, 1);
 $nav-third-section-color-hover:rgba(0,170,235, 0.5);
 
-$nav-fourth-section-color:rgba(50,190,80, 1);
-$nav-fourth-section-color-hover:rgba(50,190,80, 0.5);
+$nav-fourth-section-color:rgba(255,200,0, 1);
+$nav-fourth-section-color-hover:rgba(255,200,0, 0.5);
 
-$nav-fifth-section-color:rgba(255,200,0, 1);
-$nav-fifth-section-color-hover:rgba(255,200,0, 0.5);
+$nav-fifth-section-color:rgba(50,190,80, 1);
+$nav-fifth-section-color-hover:rgba(50,190,80, 0.5);
