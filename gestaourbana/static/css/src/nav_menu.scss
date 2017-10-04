@@ -33,7 +33,7 @@
 //quarta seção
 #nav-3 {
 	@extend .nav_itens_common;
-	border-color:$nav-fourth-section-color
+	border-color:$nav-fourth-section-color 
 }
 #nav-3:hover {
 	border-color:$nav-fourth-section-color-hover;
@@ -49,11 +49,14 @@
 }
 
 // mobile first. Hide logo screen < 550px
+header, #rodape, #nav-menu{
+	display: none;
+}
 header .columns.nine > #pmsp{
 	display: none;
 }
 header.row{
-	padding-bottom:52px;
+	padding-bottom:48px;
 }
 header .columns.nine{
 	max-width: 160px;
@@ -145,7 +148,7 @@ header .three.columns{
 }
 #menu_container #rodape #social-media li{
 	float: right;
-	margin: 0 0 0 30px;
+	margin: 0 0 0 20px;
 	padding:0;
 }
 #menu_container{
@@ -185,6 +188,10 @@ header .three.columns{
 }
 
 @media (min-width: 750px) {
+	header,#rodape,#nav-menu{
+		display: block;
+	}
+
 	header .columns.nine > #pmsp{
 		display: block;
 	}
@@ -193,6 +200,7 @@ header .three.columns{
 	}
 
 	header .columns.nine{
+		padding:0;
 		position: relative;
 		max-width: 320px;
 		ul#languages{
@@ -200,6 +208,7 @@ header .three.columns{
 		}
 	}
 	header .three.columns{
+		padding:0;
 		margin-left: 0;
 	}
 
