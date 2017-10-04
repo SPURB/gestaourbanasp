@@ -18,7 +18,6 @@ import os
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASE_DIR = os.path.dirname(PROJECT_DIR)
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
@@ -31,6 +30,9 @@ INSTALLED_APPS = [
     'categories',
     'events',
     'news',
+    'fluent_comments',
+    'crispy_forms',
+    'django_comments',
 
     'wagtail.wagtailforms',
     'wagtail.wagtailredirects',
@@ -43,6 +45,7 @@ INSTALLED_APPS = [
     'wagtail.wagtailsearch',
     'wagtail.wagtailadmin',
     'wagtail.wagtailcore',
+    'wagtail.contrib.modeladmin',
 
     'modelcluster',
     'taggit',
@@ -53,6 +56,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites'
 ]
 
 MIDDLEWARE = [
@@ -106,9 +110,9 @@ DATABASES = {
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'pt-br'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Sao_Paulo'
 
 USE_I18N = True
 
@@ -144,3 +148,16 @@ WAGTAIL_SITE_NAME = "gestaourbana"
 # Base URL to use when referring to full URLs within the Wagtail admin backend -
 # e.g. in notification emails. Don't include '/admin' or a trailing slash
 BASE_URL = 'http://gestaourbana.prefeitura.sp.gov.br/'
+
+# Comments settings
+
+SITE_ID = 1
+
+COMMENTS_APP = 'fluent_comments'
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
+
+AKISMET_API_KEY = "1eb402d27007"
+AKISMET_BLOG_URL = "http://gestaourbana.prefeitura.sp.gov.br/"
+AKISMET_IS_TEST = True
+
+FLUENT_COMMENTS_AKISMET_ACTION = 'soft_delete'  # Set to 'moderate', 'soft_delete' or 'delete'

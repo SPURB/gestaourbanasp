@@ -85,8 +85,7 @@ class HomePage(Page):
 		newspages = NewsPage.objects.live().order_by('-first_published_at')[:6]
 		context['newspages'] = newspages
 
-		print (Events.objects.all())
-
+		# Update context to include only the last three publish events.
 		events = Events.objects.all()[:3]
 		context['events'] = events
 

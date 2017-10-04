@@ -41,6 +41,10 @@ h6 {
 header {
 	font-size: 1em;
 
+	.columns {
+		padding-top: 0;
+	}
+
 	p {
 		margin-bottom: 0;
 		text-align: right;
