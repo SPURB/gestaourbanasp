@@ -5,6 +5,8 @@
 @import './variables.scss';
 @import './nav_menu.scss';
 
+@import './pages/home_page.scss';
+
 
 /*
  * Base
@@ -40,10 +42,6 @@ h6 {
 
 header {
 	font-size: 1em;
-
-	.columns {
-		padding-top: 0;
-	}
 
 	p {
 		margin-bottom: 0;
@@ -100,7 +98,7 @@ header {
 	}
 
 	.columns {
-		padding: 1.5em 0;
+		padding: 0  0 1.5em 0;
 
 		&.nine {
 			display: flex;

@@ -1,51 +1,14 @@
-.nav_itens_common {
-	margin: 0;
-	border-left: 10px solid;
-	transition: background-color .35s, border-color .35s;
-}
-//primeira seção
-#nav-0 {
-	@extend .nav_itens_common;
-	border-color:$nav-first-section-color;
-}
-#nav-0:hover {
-	border-color:$nav-first-section-color-hover;
-}
+#nav-menu {
+	// Only immediate children.
+	& > li {
+		margin: 0;
+		border-left: 10px solid;
+		transition: opacity .35s, border-color .35s;
 
-//segunda seção
-#nav-1 {
-	@extend .nav_itens_common;
-	border-color:$nav-second-section-color;
-}
-#nav-1:hover {
-	border-color:$nav-second-section-color-hover;
-}
-
-//terceira seção
-#nav-2 {
-	@extend .nav_itens_common;
-	border-color:$nav-third-section-color
-}
-#nav-2:hover {
-	border-color:$nav-third-section-color-hover;
-}
-
-//quarta seção
-#nav-3 {
-	@extend .nav_itens_common;
-	border-color:$nav-fourth-section-color
-}
-#nav-3:hover {
-	border-color:$nav-fourth-section-color-hover;
-}
-
-// //quinta-seção
-#nav-4 {
-	@extend .nav_itens_common;	
-	border-color:$nav-fifth-section-color
-}
-#nav-4:hover {
-	border-color:$nav-fifth-section-color-hover;
+		&:hover {
+			opacity: .5;
+		}
+	}
 }
 
 // mobile first. Hide logo screen < 550px
@@ -53,7 +16,7 @@ header .columns.nine > #pmsp{
 	display: none;
 }
 header.row{
-	padding-bottom:52px;
+	padding-bottom:25px;
 }
 header .columns.nine{
 	max-width: 160px;
@@ -98,6 +61,7 @@ header .three.columns{
 		display:block;
 	}
 }
+
 #logo{
 	padding:1.2em 0;
 	a {

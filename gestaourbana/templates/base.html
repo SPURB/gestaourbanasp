@@ -1,4 +1,4 @@
-{% load static wagtailuserbar %}
+{% load home_tags static wagtailuserbar %}
 
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
@@ -28,12 +28,18 @@
 
     <body class="{% block body_class %}{% endblock %}">
         {% wagtailuserbar %}
-        {% include 'includes/nav_menu.html' %}
+
+        {% block menu %}
+            {% get_site_root as site_root %}
+            {% main_menu parent=site_root calling_page=self level=3 %}
+        {% endblock %}
+
         <div class="container">
             {% include "includes/header.html" %}
             {% block content %}{% endblock %}
             {% include "includes/footer.html" %}
         </div>
+
         {# Main JavaScript #}
         <script src="{% static 'js/bundle.min.js' %}"></script>
     </body>
