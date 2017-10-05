@@ -20,6 +20,8 @@ urlpatterns = [
 
     url(r'^search/$', search_views.search, name='search'),
 
+    url(r'^noticias/comentarios/', include('fluent_comments.urls')),
+
     url('rss/', LatestNewsFeed()),
 
     # For anything not caught by a more specific rule above, hand over to
