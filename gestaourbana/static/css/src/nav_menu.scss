@@ -12,10 +12,13 @@
 }
 
 // mobile first. Hide logo screen < 550px
+header, #rodape, #nav-menu{
+	display: none;
+}
 header .columns.nine > #pmsp{
 	display: none;
 }
-header.row{
+header.row {
 	padding-bottom:25px;
 }
 header .columns.nine{
@@ -109,7 +112,7 @@ header .three.columns{
 }
 #menu_container #rodape #social-media li{
 	float: right;
-	margin: 0 0 0 30px;
+	margin: 0 0 0 20px;
 	padding:0;
 }
 #menu_container{
@@ -149,6 +152,10 @@ header .three.columns{
 }
 
 @media (min-width: 750px) {
+	header,#rodape,#nav-menu{
+		display: block;
+	}
+
 	header .columns.nine > #pmsp{
 		display: block;
 	}
@@ -157,6 +164,7 @@ header .three.columns{
 	}
 
 	header .columns.nine{
+		padding:0;
 		position: relative;
 		max-width: 320px;
 		ul#languages{
@@ -164,6 +172,7 @@ header .three.columns{
 		}
 	}
 	header .three.columns{
+		padding:0;
 		margin-left: 0;
 	}
 
