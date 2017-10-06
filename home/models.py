@@ -82,7 +82,7 @@ class HomePage(Page):
 		# ordered by reverse chronological order.
 		context = super(HomePage, self).get_context(request)
 
-		newspages = NewsPage.objects.live().order_by('-first_published_at')[:6]
+		newspages = NewsPage.objects.live().order_by('-date')[:6]
 		context['newspages'] = newspages
 
 		# Update context to include only the last three publish events.
@@ -95,6 +95,8 @@ class HomePage(Page):
 		InlinePanel(
 			'headlines',
 			label="Manchetes",
+			min_num=1,
+			max_num=3,
 			help_text="As três primeiras manchetes descritas nesta página serão renderizadas em ordem. Qualquer manchete além da terceira não será renderizada.")
 	]
 

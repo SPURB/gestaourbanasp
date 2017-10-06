@@ -66,7 +66,7 @@ header .three.columns{
 }
 
 #logo{
-	padding:1.2em 0;
+	padding:1.2rem 0;
 	a {
 		img {
 			width: 50%;
@@ -78,11 +78,11 @@ header .three.columns{
 	position:absolute;
 	top: 0;
 	right: 7.5%;
-	margin-top:1em;
+	margin-top:1rem;
 	background-color: $main-color;
 	border-color: $main-color;
 	i.fa,i.fa-times{
-		font-size: 1.5em;
+		font-size: 1.5rem;
 	}
 	span{
 		display: none;
@@ -191,10 +191,10 @@ header .three.columns{
 		border-right: solid 1px $nav-hairline;
 		height: 100%;
 		overflow-y:auto;
-		font-size: 1.1em;
+		font-size: 1.1rem;
 	}
 	#logo{
-		padding:29px 0 20px 0;
+		padding:29px 0 2rem 0;
 		a img{
 			width: 201px;
 		}

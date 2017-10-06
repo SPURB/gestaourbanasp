@@ -1,0 +1,89 @@
+/* HEADLINES STYLES */
+
+#headlines {
+	padding: 2rem 0;
+
+	.row + .row {
+		margin-top: 2rem;
+	}
+
+	.headline {
+		
+		a {
+			transition: all 200ms ease-in-out;
+
+			&:hover {
+				opacity: .6;
+			}
+		}
+
+		.headline-image {
+			img {
+				width: 100%;
+			}
+		}
+
+		.headline-content {
+			h1 {
+				color: $main-text-color;
+				font-size: 1.5rem;
+				border-left: 5px solid $main-text-color;
+				padding-left: .9rem;
+				margin: .9rem 0 0;
+			}
+		}
+
+		&#main-headline {
+			.headline-content {
+				h1 {
+					font-size: 2.5rem;
+				}
+			}
+		}
+	}
+}
+
+#home-page-feed {
+	h1 {
+		background-color: $light-bg;
+		color: white;
+		text-transform: lowercase;
+		font-weight: normal;
+		font-size: 1.5rem;
+		padding: .1rem .3rem;
+		margin-bottom: 2rem;
+	}
+
+	.row {
+		margin-bottom: 2rem;
+	}
+
+	.see-more {
+		width: 100%;
+		margin-bottom: 2rem;
+
+		a { 
+			margin-bottom: 0;
+		}
+	}
+
+	.news {
+		overflow: hidden;
+
+		h5 {			
+			font-size: 1rem;
+			border-left: 3px solid $main-text-color;
+			padding-left: .9rem;
+			margin: .9rem 0 0; 
+			margin: 0;
+			color: $main-text-color;
+			line-height: 1.2;
+		}
+
+		p.date {
+			color: $secondary-text-color;
+			margin: .5rem 0 .5rem 18px;
+			font-size: .7rem;
+		}
+	}
+}

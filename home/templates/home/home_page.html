@@ -6,92 +6,136 @@
 {% block body_class %}template-homepage{% endblock %}
 
 {% block content %}
-	{% with headlines=page.headlines.all %}
-		{% if headlines|length == 1 %}
-			{% for headline in headlines %}
-				{% image headline.imagem width-400 as imagem %}
-				<div class="row" style="background-image:url('{{ imagem.url }}')">
-					<div class="headline">
+	<div id="headlines">
+		{% with headlines=page.headlines.all %}
+			{% if headlines|length == 1 %}
+				{% for headline in headlines %}
+					{% image headline.imagem width-960 as imagem %}
+					<div class="row">
+						<div class="headline" id="main-headline">
+							<a href="{{ headline.link }}">
+								<div class="headline-image">
+									<img src="{{ imagem.url }}" alt="{{ imagem }}">
+								</div>
+								<div class="headline-content">
+									<h1 style="border-left-color: {{ headline.categoria.cor }};">{{ headline.titulo }}</h1>
+								</div>
+							</a>
+						</div>
+					</div>
+				{% endfor %}
+			{% endif %}
+			{% if headlines|length == 2 %}
+				<div class="row">
+				{% for headline in headlines %}		
+					{% image headline.imagem width-960 as imagem %}		
+					<div class="headline columns six">
 						<a href="{{ headline.link }}">
-							<h1>{{ headline.titulo }}</h1>
+							<div class="headline-image">
+								<img src="{{ imagem.url }}" alt="{{ imagem }}">
+							</div>
+							<div class="headline-content">
+								<h1 style="border-left-color: {{ headline.categoria.cor }};">{{ headline.titulo }}</h1>
+							</div>
+						</a>
+					</div>				
+				{% endfor %}
+				</div>
+			{% endif %}
+			{% if headlines|length >= 3 %}
+				{% for headline in headlines %}
+					{% if forloop.counter == 1 %}
+						{% image headline.imagem width-960 as imagem %}
+						<div class="row">
+							<div class="headline"  id="main-headline">
+								<a href="{{ headline.link }}">
+									<div class="headline-image">
+										<img src="{{ imagem.url }}" alt="{{ imagem }}">
+									</div>
+									<div class="headline-content">
+										<h1 style="border-left-color: {{ headline.categoria.cor }};">{{ headline.titulo }}</h1>
+									</div>
+								</a>
+							</div>
+						</div>
+					{% endif %}
+					{% if forloop.counter == 2 %}
+						{% image headline.imagem width-960 as imagem %}
+						<div class="row">
+							<div class="headline columns six">
+								<a href="{{ headline.link }}">
+									<div class="headline-image">
+										<img src="{{ imagem.url }}" alt="{{ imagem }}">
+									</div>
+									<div class="headline-content">
+										<h1 style="border-left-color: {{ headline.categoria.cor }};">{{ headline.titulo }}</h1>
+									</div>
+								</a>
+							</div>
+					{% endif %}
+					{% if forloop.counter == 3 %}
+						{% image headline.imagem width-960 as imagem %}
+							<div class="headline columns six">
+								<a href="{{ headline.link }}">
+									<div class="headline-image">
+										<img src="{{ imagem.url }}" alt="{{ imagem }}">
+									</div>
+									<div class="headline-content">
+										<h1 style="border-left-color: {{ headline.categoria.cor }};">{{ headline.titulo }}</h1>
+									</div>
+								</a>
+							</div>
+						</div>
+					{% endif %}
+				{% endfor %}
+			{% endif %}
+		{% endwith %}
+	</div>
+	
+	<div id="home-page-feed">
+		<h1>Notícias</h1>
+		{% for news in newspages %}
+			{% with news=news.specific %}
+				{% if forloop.counter == 1 or forloop.counter == 4  %}
+					<div class="row">
+				{% endif %}
+					<div class="news columns four">
+						<a href="{% pageurl news %}">
+							<div class="news-image">
+								{% with news.imagem_principal as imagem_principal %}
+									{% if imagem_principal %}
+										{% image imagem_principal fill-300x150 %}
+									{% endif %}
+								{% endwith %}
+							</div>
+							<div class="news-content">
+								<p class="date">{{ news.date }}</p>
+								<h5 style="border-left-color: {{ news.categoria.cor }};">{{ news.title }}</h5>
+							</div>
 						</a>
 					</div>
-				</div>
-			{% endfor %}
-		{% endif %}
-		{% if headlines|length == 2 %}
-			<div class="row">
-			{% for headline in headlines %}		
-				{% image headline.imagem width-400 as imagem %}		
-				<div class="headline columns six" style="background-image:url('{{ imagem.url }}')">
-					<a href="{{ headline.link }}">
-						<h1>{{ headline.titulo }}</h1>
-					</a>
-				</div>				
-			{% endfor %}
-			</div>
-		{% endif %}
-		{% if headlines|length >= 3 %}
-			{% for headline in headlines %}
-				{% if forloop.counter == 1 %}
-					{% image headline.imagem width-400 as imagem %}
-					<div class="row">
-						<div class="headline" style="background-image:url('{{ imagem.url }}')">
-							<a href="{{ headline.link }}">
-								<h1>{{ headline.titulo }}</h1>
-							</a>
-						</div>
+				{% if forloop.counter == 3 or forloop.counter == 6  %}
 					</div>
-				{% endif %}
-				{% if forloop.counter == 2 %}
-					{% image headline.imagem width-400 as imagem %}
-					<div class="row">
-						<div class="headline columns six" style="background-image:url('{{ imagem.url }}')">
-							<a href="{{ headline.link }}">
-								<h1>{{ headline.titulo }}</h1>
-							</a>
-						</div>
-				{% endif %}
-				{% if forloop.counter == 3 %}
-						<div class="headline columns six" style="background-image:url('{{ imagem.url }}')">
-							<a href="{{ headline.link }}">
-								<h1>{{ headline.titulo }}</h1>
-							</a>
-						</div>
-					</div>
-				{% endif %}
-			{% endfor %}
-		{% endif %}
-	{% endwith %}
-	
-	<h1>Notícias</h1>
-	{% for news in newspages %}
-		{% with news=news.specific %}
-			<h2><a href="{% pageurl news %}">{{ news.title }}</a></h2>
-
-			{% with news.main_image as main_image %}
-				{% if main_image %}
-					{% image main_image fill-160x100 %}
 				{% endif %}
 			{% endwith %}
+		{% endfor %}
+		<div class="see-more u-cf">
+			<a href="/noticias" class="button u-pull-right">Ver mais notícias</a>
+		</div>
 
-			{{ news.intro }}
-			{{ news.body|richtext }}
-		{% endwith %}
-	{% endfor %}
-
-	<h1>Eventos</h1>
-	{% for event in events %}
-		<ul>
-			{% for event in events %}
-			<li>
-				<h1 id="{{ event.slug }}">{{ event.titulo }}</h1>
-				<p>Horário: {{ event.horario_inicio }} - {{ event.horario_final }}</p>
-				<p>Data: {{ event.data_inicio }} - {{ event.data_final }}</p>
-				<p>Local: {{ event.endereco }}</p>
-			</li>
-			{% endfor %}
-		</ul>
-	{% endfor %}
+		<h1>Próximos eventos</h1>
+		{% for event in events %}
+			<ul>
+				{% for event in events %}
+				<li>
+					<h3 id="{{ event.slug }}">{{ event.titulo }}</h3>
+					<p>Horário: {{ event.horario_inicio }} - {{ event.horario_final }}</p>
+					<p>Data: {{ event.data_inicio }} - {{ event.data_final }}</p>
+					<p>Local: {{ event.endereco }}</p>
+				</li>
+				{% endfor %}
+			</ul>
+		{% endfor %}
+	</div>
 
 {% endblock %}

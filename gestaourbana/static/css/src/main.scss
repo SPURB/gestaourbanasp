@@ -11,13 +11,18 @@
 /*
  * Base
  */
+
+html {
+  font-size: 16px;
+}
+
 a {
 	color: $main-color;
 	text-decoration: none;
-	transition: color 100ms ease-in;
+	transition: opacity 150ms ease-in;
 
 	&:hover {
-		color: lighten($main-color, 25%);
+		opacity: .6;
 	}
 }
 
@@ -36,12 +41,23 @@ h6 {
 	color: $main-color;
 }
 
+.button-primary {
+	background-color: $main-color;
+	border: none;
+	color: white;
+
+	&:hover,
+	&:visited {
+		color: white;
+	}
+}
+
 /*
  * Header
  */
 
 header {
-	font-size: 1em;
+	font-size: 1rem;
 
 	p {
 		margin-bottom: 0;
@@ -50,7 +66,7 @@ header {
 
 		i {
 			display: inline-block;
-			padding-right: .5em;
+			padding-right: .5rem;
 		}	
 	}
 
@@ -83,8 +99,8 @@ header {
 			a {
 				display: inline-block;
 				border-right: 1px solid $secondary-text-color;
-				margin-right: .5em;
-				padding-right: .5em;
+				margin-right: .5rem;
+				padding-right: .5rem;
 			}
 
 			&:last-of-type {
@@ -98,7 +114,7 @@ header {
 	}
 
 	.columns {
-		padding: 0  0 1.5em 0;
+		padding: 0  0 1.5rem 0;
 
 		&.nine {
 			display: flex;
@@ -111,7 +127,7 @@ header {
  */
 
 footer {
-	font-size: 1em;
+	font-size: 1rem;
 	color: $main-text-color;
 
 	ul {
@@ -123,7 +139,7 @@ footer {
 
 		&#social-media li {
 			display: inline-block;
-			padding-right: 1.5em;
+			padding-right: 1.5rem;
 		}
 	}
 

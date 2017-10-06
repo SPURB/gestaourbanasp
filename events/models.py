@@ -42,7 +42,7 @@ class Events(Orderable):
 		endereco = models.CharField(max_length=255)
 
 		data_inicio = models.DateField("Data de Início")
-		data_final = models.DateField("Data Final")
+		data_final = models.DateField("Data Final", blank=True, null=True)
 
 		horario_inicio = models.TimeField("Horário de Início")
 		horario_final = models.TimeField("Horário Final")

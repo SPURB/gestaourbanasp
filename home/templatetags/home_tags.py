@@ -60,8 +60,6 @@ def main_menu_children(context, parent, parent_tabindex, parent_level):
     # values to the menuitems.
     sobre_tabindex = parent_tabindex + 10**level
 
-    print(level, parent, sobre_tabindex)
-
     return {
         'level': level,
         'parent': parent,
