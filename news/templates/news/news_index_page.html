@@ -5,21 +5,29 @@
 {% block body_class %}template-blogindexpage{% endblock %}
 
 {% block content %}
-	<h1>{{ page.title }}</h1>
-	<div class="intro">{{ page.intro|richtext }}</div>
-
-	{% for news in newspages %}
-		{% with news=news.specific %}
-			<h2><a href="{% pageurl news %}">{{ news.title }}</a></h2>
-
-			{% with news.main_image as main_image %}
-				{% if main_image %}
-					{% image main_image fill-160x100 %}
-				{% endif %}
+	<h3 id="page-title">{{ page.title }}</h3>
+	
+	<ul id="news_list">
+		{% for news in newspages %}
+			{% with news=news.specific %}
+				<li class="row">
+					<div class="four columns news-image">
+						{% with news.imagem_principal as imagem_principal %}
+							{% if imagem_principal %}
+								{% image imagem_principal fill-300x200 %}
+							{% endif %}
+						{% endwith %}
+						<p class="caption">{{ news.legenda }}</p>
+					</div>
+					<div class="eight columns news-content">
+						<p class="date" style="background-color: {{ news.categoria.cor }};">{{ news.date }}</p>
+						<h1>{{ news.title }}</h1>
+						<h4>{{ news.subtitulo }}</h4>
+						<p>{{ news.descricao }}</p>
+						<a href="{% pageurl news %}" class="see-more button button-primary">Ler mais</a>
+					</div>
+				</li>
 			{% endwith %}
-
-			{{ news.intro }}
-			{{ news.body|richtext }}
-		{% endwith %}
-	{% endfor %}
+		{% endfor %}
+	</ul>
 {% endblock %}

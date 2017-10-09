@@ -1,3 +1,5 @@
+import re
+
 from django import forms
 from django.db import models
 
@@ -25,13 +27,7 @@ class NewsIndexPage(Page):
 	The News Index page will consist of all news stories 
 	organized in reverse chronological order.
 
-	""" 
-
-	intro = RichTextField(blank=True)
-
-	content_panels = Page.content_panels + [
-		FieldPanel('intro', classname="full")
-	]
+	"""
 
 	def get_context(self, request):
 		# Update context to include only published news,
@@ -64,6 +60,12 @@ class NewsPage(Page):
 		('HTML', blocks.RawHTMLBlock()),
 		('Embed', EmbedBlock()),
 	])
+
+	descricao = models.CharField(
+		max_length=500, 
+		blank=True,
+		help_text="A descrição que vai aparecer na página que lista as notícias."
+	)
 
 	subtitulo = models.CharField(
 		max_length=250, 
@@ -103,6 +105,7 @@ class NewsPage(Page):
 
 	content_panels = Page.content_panels + [
 		FieldPanel('subtitulo', classname="full title"),
+		FieldPanel('descricao', classname="full"),
 		MultiFieldPanel([
 			ImageChooserPanel('imagem_principal'),
 			FieldPanel('legenda'),

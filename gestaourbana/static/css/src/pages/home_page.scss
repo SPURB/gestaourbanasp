@@ -25,9 +25,9 @@
 
 		.headline-content {
 			h1 {
-				color: $main-text-color;
+				color: $main-color;
 				font-size: 1.5rem;
-				border-left: 5px solid $main-text-color;
+				border-left: 5px solid $main-color;
 				padding-left: .9rem;
 				margin: .9rem 0 0;
 			}
@@ -76,11 +76,11 @@
 
 		h5 {			
 			font-size: 1rem;
-			border-left: 3px solid $main-text-color;
+			border-left: 3px solid $main-color;
 			padding-left: .9rem;
 			margin: .9rem 0 0; 
 			margin: 0;
-			color: $main-text-color;
+			color: $main-color;
 			line-height: 1.2;
 		}
 
@@ -96,7 +96,7 @@
 
 		li {
 			margin-bottom: 1.5em;
-			border-left: 5px solid $main-text-color;
+			border-left: 5px solid $main-color;
 
 			.event-date {
 				text-align: center;
@@ -104,6 +104,10 @@
 
 				p {
 					margin-bottom: 0;
+
+					span {
+						color: $main-color;
+					}
 				}
 
 				span.days {
@@ -122,7 +126,7 @@
 				}
 
 				h3 {
-					color: $main-text-color;
+					color: $main-color;
 					font-size: 1.5rem;
 					margin-bottom: .5rem;
 				}

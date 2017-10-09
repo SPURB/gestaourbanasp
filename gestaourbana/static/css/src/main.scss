@@ -6,6 +6,7 @@
 @import './nav_menu.scss';
 
 @import './pages/home_page.scss';
+@import './pages/news_index_page.scss';
 
 
 /*
@@ -14,6 +15,11 @@
 
 html {
   font-size: 16px;
+}
+
+p a {
+	text-decoration: underline;
+	color: blue;
 }
 
 a {
@@ -41,7 +47,11 @@ h6 {
 	color: $main-color;
 }
 
-.button-primary {
+.button {
+	border-radius: 0;
+}
+
+.button.button-primary {
 	background-color: $main-color;
 	border: none;
 	color: white;
@@ -49,7 +59,12 @@ h6 {
 	&:hover,
 	&:visited {
 		color: white;
+		background-color: $main-color;
 	}
+}
+
+#page-title {
+	margin-top: 1.5rem;
 }
 
 /*
