@@ -44,7 +44,7 @@ header .three.columns{
 		text-decoration: none;
 	}
 	li {
-		border-top: solid 1px $nav-hairline; 
+		border-top: solid 1px $hairline; 
 		padding:5px;
 		cursor: pointer;
 		min-height: 45px;
@@ -121,8 +121,7 @@ header .three.columns{
 		#nav-menu{
 			overflow: hidden;
 			margin-bottom: 0px;
-			padding-bottom: 25px;
-			border-bottom: solid 1px $nav-hairline;
+			border-bottom: solid 1px $hairline;
 		}
 	}
 }
@@ -188,7 +187,7 @@ header .three.columns{
 	#menu_container{
 		position: fixed;
 		width: 220px;
-		border-right: solid 1px $nav-hairline;
+		border-right: solid 1px $hairline;
 		height: 100%;
 		overflow-y:auto;
 		font-size: 1.1rem;
@@ -200,14 +199,21 @@ header .three.columns{
 		}
 	}
 
-	#menu_container #rodape #social-media li{
+	#social-media {
+		margin-bottom: 2rem;
+	}
+
+	#menu_container #rodape #social-media li {
 		float: left;
-		margin: 0 30px 0 0;
+		margin: 0 25px 0 0;
 		padding:0;
+
+		&:first-of-type {
+			margin-left: 0;
+		}
 	}
 
 	#menu_container>nav{
-		margin-right: 20px;
 		min-height: 100%;
 		padding-bottom: 235px;
 		position:relative;

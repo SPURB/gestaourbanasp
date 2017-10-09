@@ -23,6 +23,9 @@ class Events(Orderable):
 		Each event will have a title, a place, a start date,
 		an end date, a start time and an end time.
 
+		The end date will be optional in case the event 
+		will happen in a single day.
+
 		"""
 
 		titulo = models.CharField(
@@ -39,6 +42,14 @@ class Events(Orderable):
 			help_text="A url do evento. Não deve conter nenhum caractere especial."
 		)
 
+		categoria = models.ForeignKey(
+			Categories, 
+			null=True,
+			blank=True,
+			on_delete=models.PROTECT,
+			default=0
+		)
+
 		endereco = models.CharField(max_length=255)
 
 		data_inicio = models.DateField("Data de Início")
@@ -51,6 +62,7 @@ class Events(Orderable):
 
 		panels = [
 			FieldPanel('titulo'),
+			FieldPanel('slug'),
 			FieldPanel('endereco'),
 			MultiFieldPanel([
 				FieldPanel('data_inicio'),
@@ -59,7 +71,8 @@ class Events(Orderable):
 			MultiFieldPanel([
 				FieldPanel('horario_inicio'),
 				FieldPanel('horario_final')
-			], heading='Horários')
+			], heading='Horários'),
+			FieldPanel('categoria', widget=forms.RadioSelect())
 		]
 
 

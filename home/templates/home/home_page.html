@@ -109,7 +109,7 @@
 								{% endwith %}
 							</div>
 							<div class="news-content">
-								<p class="date">{{ news.date }}</p>
+								<p class="date">{{ news.date|date:"d-m-Y" }}</p>
 								<h5 style="border-left-color: {{ news.categoria.cor }};">{{ news.title }}</h5>
 							</div>
 						</a>
@@ -124,18 +124,34 @@
 		</div>
 
 		<h1>Próximos eventos</h1>
-		{% for event in events %}
-			<ul>
-				{% for event in events %}
-				<li>
+		<ul id="events">
+			{% for event in events %}
+			<li class="row" style="border-left-color: {{ event.categoria.cor }};">
+				<div class="three columns event-date">
+					<p>
+						<span class="days">
+							{{ event.data_inicio|date:"d" }}
+								{% if event.data_final %}
+								- {{ event.data_final|date:"d" }}
+								{% endif %}
+						</span>
+						<br>
+						<span class="month">
+							{{ event.data_inicio|date:"M" }}
+						</span>
+					</p>
+				</div>
+				<div class="nine columns event-content">
 					<h3 id="{{ event.slug }}">{{ event.titulo }}</h3>
-					<p>Horário: {{ event.horario_inicio }} - {{ event.horario_final }}</p>
-					<p>Data: {{ event.data_inicio }} - {{ event.data_final }}</p>
+					<p>Horário: {{ event.horario_inicio }} - {{ event.horario_final }}</p>					
 					<p>Local: {{ event.endereco }}</p>
-				</li>
-				{% endfor %}
-			</ul>
-		{% endfor %}
+				</div>
+			</li>
+			{% endfor %}
+		</ul>
+		<div class="see-more u-cf">
+			<a href="/agenda" class="button u-pull-right">Ver agenda de eventos</a>
+		</div>
 	</div>
 
 {% endblock %}

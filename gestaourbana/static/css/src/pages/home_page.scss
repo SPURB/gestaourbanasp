@@ -43,7 +43,11 @@
 	}
 }
 
+/* NEWS AND EVENTS STYLES */
+
 #home-page-feed {
+	margin-bottom: 1.5rem;
+
 	h1 {
 		background-color: $light-bg;
 		color: white;
@@ -84,6 +88,45 @@
 			color: $secondary-text-color;
 			margin: .5rem 0 .5rem 18px;
 			font-size: .7rem;
+		}
+	}
+
+	#events {
+		list-style-type: none;
+
+		li {
+			margin-bottom: 1.5em;
+			border-left: 5px solid $main-text-color;
+
+			.event-date {
+				text-align: center;
+				font-weight: bold;
+
+				p {
+					margin-bottom: 0;
+				}
+
+				span.days {
+					font-size: 2.5rem;
+					line-height: 3rem;
+				}
+
+				span.month {
+					text-transform: lowercase;
+				}
+			}
+
+			.event-content {
+				p {
+					margin-bottom: 0;
+				}
+
+				h3 {
+					color: $main-text-color;
+					font-size: 1.5rem;
+					margin-bottom: .5rem;
+				}
+			}
 		}
 	}
 }

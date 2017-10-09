@@ -129,6 +129,9 @@ header {
 footer {
 	font-size: 1rem;
 	color: $main-text-color;
+	padding-top: 3rem;
+	margin-top: 3rem;
+	border-top: 1px solid $hairline;
 
 	ul {
 		list-style-type: none;
