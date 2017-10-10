@@ -6,16 +6,38 @@
 {% block body_class %}template-homepage{% endblock %}
 
 {% block content %}
+	<h3 id="page-title">Agenda de Eventos</h3>
 	{% with events=page.events.all %}
-		<ul>
+		<div id="events">
 			{% for event in events %}
-			<li>
-				<h1>{{ event.titulo }}</h1>
-				<p>Horário: {{ event.horario_inicio }} - {{ event.horario_final }}</p>
-				<p>Data: {{ event.data_inicio }} - {{ event.data_final }}</p>
-				<p>Local: {{ event.endereco }}</p>
-			</li>
+				{% if forloop.counter|divisibleby:4 or forloop.counter == 1  %}
+					<div class="row">
+				{% endif %}
+					<div class="columns four event" id="{{ event.slug }}" style="border-top-color: {{ event.categoria.cor }};">
+						<div class="event-date">
+							<p>
+								<span class="days">
+									{{ event.data_inicio|date:"d" }}
+										{% if event.data_final %}
+										- {{ event.data_final|date:"d" }}
+										{% endif %}
+								</span>
+								<br>
+								<span class="month">
+									{{ event.data_inicio|date:"M" }}
+								</span>
+							</p>
+						</div>
+						<div class="event-content">
+							<h1>{{ event.titulo }}</h1>
+							<p><strong>Horário</strong> {{ event.horario_inicio }} - {{ event.horario_final }}</p>
+							<p><strong>Local</strong> {{ event.endereco }}</p>
+						</div>
+					</div>
+				{% if forloop.counter|divisibleby:3  %}
+					</div>
+				{% endif %}
 			{% endfor %}
-		</ul>
+		</div>
 	{% endwith %}
 {% endblock %}

@@ -7,6 +7,7 @@
 
 @import './pages/home_page.scss';
 @import './pages/news_index_page.scss';
+@import './pages/events_index_page.scss';
 
 
 /*
@@ -87,6 +88,7 @@ header {
 
 	a {
 		color: $main-text-color;
+		text-decoration: none;
 
 		&:hover {
 			color: lighten($main-text-color, 25%);
