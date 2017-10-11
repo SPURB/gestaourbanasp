@@ -5,34 +5,44 @@
 {% block body_class %}template-blogpage{% endblock %}
 
 {% block content %}
-	<h1>{{ page.title }}</h1>
-	{% for block in page.corpo %}
-        {% if block.block_type == 'Título' %}
-            <h3>{{ block.value }}</h3>
-        {% endif %}
-        {% if block.block_type == 'Subtítulo' %}
-            <h6>{{ block.value }}</h6>
-        {% endif %}
-        {% if block.block_type == 'Parágrafo' %}
-            <div>{{ block.value }}</div>
-        {% endif %}
-        {% if block.block_type == 'Citação' %}
-            <blockquote>{{ block.value }}</blockquote>
-        {% endif %}
-        {% if block.block_type == 'Imagem' %}
-            <figure>{{ block }}</figure>
-        {% endif %}
-        {% if block.block_type == 'Documento' %}
-            <div>{{ block }}</div>
-        {% endif %}
-        {% if block.block_type == 'Página' %}
-            <div>{{ block }}</div>
-        {% endif %}
-        {% if block.block_type == 'HTML' %}
-            <div>{{ block }}</div>
-        {% endif %}
-        {% if block.block_type == 'Embed' %}
-            <div>{{ block }}</div>
-        {% endif %}
-    {% endfor %}
+	<h3 id="page-title" style="color: {{ cor }};">{{ page.title }}</h3>
+    <div class="row">
+        <div id="static-block">
+            {% for block in page.corpo %}
+                {% if block.block_type == 'Parágrafo' %}
+                    <div>{{ block.value }}</div>                                        
+                {% endif %}
+                {% if block.block_type == 'Imagem_FULL' %}
+                    <figure class="full">{{ block }}</figure>
+                {% endif %}
+                {% if block.block_type == 'Imagem' %}
+                    <figure>{{ block }}</figure>
+                {% endif %}
+                {% if block.block_type == 'Documento' %}
+                    <div>{{ block }}</div>
+                {% endif %}
+                {% if block.block_type == 'Página' %}
+                    <div>{{ block }}</div>
+                {% endif %}
+                {% if block.block_type == 'HTML' %}
+                    <div>{{ block }}</div>
+                {% endif %}
+                {% if block.block_type == 'Embed' %}
+                    <div>{{ block }}</div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+    <div class="row">
+        <div class="go-back">
+            <a 
+                style="background-color: {{ cor }} !important;" 
+                class="button button-primary" 
+                href="{{ page.get_parent.url }}">
+                <i class="fa fa-arrow-left"></i> 
+                {{ page.get_parent.title }}
+            </a>
+        </div>
+    </div>
+    
 {% endblock %}

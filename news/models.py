@@ -50,11 +50,9 @@ class NewsPage(Page):
 	""" 
 
 	corpo = StreamField([
-		('Título', blocks.CharBlock(classname="full title")),
-		('Subtítulo', blocks.CharBlock(classname="full title")),
 		('Parágrafo', blocks.RichTextBlock()),
-		('Citação', blocks.BlockQuoteBlock()),
 		('Imagem', ImageChooserBlock()),
+		('Imagem_FULL', ImageChooserBlock()),
 		('Documento', DocumentChooserBlock()),
 		('Página', blocks.PageChooserBlock()),
 		('HTML', blocks.RawHTMLBlock()),

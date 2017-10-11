@@ -120,12 +120,16 @@ class CategoryStaticPage(Page):
 
 	"""
 
+	descricao = models.CharField(
+		max_length=250, 
+		blank=True,
+		help_text="A descrição que vai aparecer na página index da categoria."
+	)
+
 	corpo = StreamField([
-		('Título', blocks.CharBlock(classname="full title")),
-		('Subtítulo', blocks.CharBlock(classname="full title")),
 		('Parágrafo', blocks.RichTextBlock()),
-		('Citação', blocks.BlockQuoteBlock()),
 		('Imagem', ImageChooserBlock()),
+		('Imagem_FULL', ImageChooserBlock()),
 		('Documento', DocumentChooserBlock()),
 		('Página', blocks.PageChooserBlock()),
 		('HTML', blocks.RawHTMLBlock()),
@@ -133,5 +137,15 @@ class CategoryStaticPage(Page):
 	])
 
 	content_panels = Page.content_panels + [
-		StreamFieldPanel('corpo')       
+		FieldPanel('descricao', classname="full"),
+		StreamFieldPanel('corpo')
 	]
+
+
+	def get_context(self, request):
+		# Add parent Category color to context.
+		context = super(CategoryStaticPage, self).get_context(request)
+
+		categorypage = self.get_parent()
+		context['cor'] = CategoryIndexPage.objects.get(id=categorypage.id).categoria.cor
+		return context

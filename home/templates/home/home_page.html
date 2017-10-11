@@ -104,12 +104,12 @@
 							<div class="news-image">
 								{% with news.imagem_principal as imagem_principal %}
 									{% if imagem_principal %}
-										{% image imagem_principal fill-300x150 %}
+										{% image imagem_principal width-300 %}
 									{% endif %}
 								{% endwith %}
 							</div>
 							<div class="news-content">
-								<p class="date">{{ news.date|date:"d-m-Y" }}</p>
+								<p class="date">{{ news.date|date:"d/m/Y" }}</p>
 								<h5 style="border-left-color: {{ news.categoria.cor }};">{{ news.title }}</h5>
 							</div>
 						</a>

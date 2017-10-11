@@ -34,7 +34,7 @@
 							<p><strong>Local</strong> {{ event.endereco }}</p>
 						</div>
 					</div>
-				{% if forloop.counter|divisibleby:3  %}
+				{% if forloop.counter|divisibleby:3 or forloop.last  %}
 					</div>
 				{% endif %}
 			{% endfor %}

@@ -1,255 +1,74 @@
-#nav-menu {
-	// Only immediate children.
-	& > li {
-		margin: 0;
-		border-left: 10px solid;
-		transition: opacity .35s, border-color .35s;
+#menu-container {
+	background-color: $hairline;
+	color: $main-color;
+	position: fixed;
+	left: 0;
+	height: 100vh;
+	width: 300px;
+	padding: 3rem 0;
+	z-index: 999;
+	
+	// Overwrite default hover style.
+	a:hover {
+		opacity: 1;
+	}
 
-		&:hover {
-			opacity: .5;
+	#logo {
+		margin-bottom: 3rem;
+	}
+
+	#social-media li {
+		display: inline-block;
+		margin-right: 1rem;
+
+		&:last-of-type {
+			margin-right: 0;
 		}
 	}
-}
+	
+	ul {
+		list-style-type: none;
+	}
 
-// mobile first. Hide logo screen < 550px
-header, #rodape, #nav-menu{
-	display: none;
-}
-header .columns.nine > #pmsp{
-	display: none;
-}
-header.row {
-	padding-bottom:25px;
-}
-header .columns.nine{
-	max-width: 160px;
-	position: absolute;
-	top:25px;
-	left: 7.5%;
-}
-header .three.columns{
-	margin-left: 0;
-	position: absolute;
-	max-width: 122px;
-	top: 25px;
-	right: 7.5%;
-}
+	#logo, #rodape, #nav-menu > li {
+		padding-left: 3rem;
+	}
 
-#menu_container{
-	width: 90%;
-	margin: 0 auto;
-	padding:0px;
-	ul li{
-		list-style: none;
-		text-decoration: none;
-	}
-	li {
-		border-top: solid 1px $hairline; 
-		padding:5px;
-		cursor: pointer;
-		min-height: 45px;
-		ul{
-			margin: 0 0 0 15px;
-		}
-	}
-	li:focus{
-		background-color:$main-color-focus;	
-	}
-	// peekaboo for sublistitens
-	.expansor ~ ul{
-		display:none;
-		overflow: hidden;
-	}
-	ul.expanded{
-		display:block;
-	}
-}
-
-#logo{
-	padding:1.2rem 0;
-	a {
-		img {
-			width: 50%;
-		}
-	}
-}
-
-#menu_container .menu_btn{
-	position:absolute;
-	top: 0;
-	right: 7.5%;
-	margin-top:1rem;
-	background-color: $main-color;
-	border-color: $main-color;
-	i.fa,i.fa-times{
-		font-size: 1.5rem;
-	}
-	span{
-		display: none;
-		color:#FFF
-	}
-	.open{
-		display: block;
-	}
-}
-
-#menu_container .menu_btn:hover{
-	background-color: $main-color-hover;
-	border-color: $main-color-hover;
-}
-
-#rodape{
-	li{
-		float: left;
-		border:0;
-		padding-right:15px;
-		min-height:25px;
-	}
-}
-
-#menu_container #rodape #termos-contato li{
-	padding-left:0;
-}
-#menu_container #rodape #social-media li{
-	float: right;
-	margin: 0 0 0 20px;
-	padding:0;
-}
-#menu_container{
-	width: 85%;
-	nav {
-		#nav-menu{
+	#nav-menu {
+		ul {
 			overflow: hidden;
-			margin-bottom: 0px;
-			border-bottom: solid 1px $hairline;
-		}
-	}
-}
+			display: none;
 
-// toggle classes
-.nav-closed{
-	display:none
-}
+			&.expansible {
+				margin: 0;
 
-/* mediaqueries */
-@media (min-width: 400px) {
-	header .columns.nine{
-		left: 0;
-	}
-	header .three.columns{
-		right: 0;
-	}
-}
-
-@media (min-width: 550px) {
-	#menu_container{
-		width: 80%;
-		button.menu_btn{
-			right: 10%;
-		}
-	}
-}
-
-@media (min-width: 750px) {
-	header,#rodape,#nav-menu{
-		display: block;
-	}
-
-	header .columns.nine > #pmsp{
-		display: block;
-	}
-	header.row{
-		margin-bottom:0;
-	}
-
-	header .columns.nine{
-		padding:0;
-		position: relative;
-		max-width: 320px;
-		ul#languages{
-			margin-left: 20px;
-		}
-	}
-	header .three.columns{
-		padding:0;
-		margin-left: 0;
-	}
-
-	body{
-		max-width: 750px;
-		margin: 0 auto;
-	}
-	div.container{
-		margin: 0 0 0 auto;
-		max-width: 510px;
-	}
-
-	#menu_container{
-		position: fixed;
-		width: 220px;
-		border-right: solid 1px $hairline;
-		height: 100%;
-		overflow-y:auto;
-		font-size: 1.1rem;
-	}
-	#logo{
-		padding:29px 0 2rem 0;
-		a img{
-			width: 201px;
-		}
-	}
-
-	#social-media {
-		margin-bottom: 2rem;
-	}
-
-	#menu_container #rodape #social-media li {
-		float: left;
-		margin: 0 25px 0 0;
-		padding:0;
-
-		&:first-of-type {
-			margin-left: 0;
-		}
-	}
-
-	#menu_container>nav{
-		min-height: 100%;
-		padding-bottom: 235px;
-		position:relative;
-		box-sizing:border-box;
-		#rodape{
-			position:absolute;
-			bottom: 0;
-			box-sizing: border-box;
-			width: 100%;
-			padding: 20px 0;
-			li{
-				float:none;
+				li {
+					padding: 1rem 0 1rem 3rem;
+				}
 			}
 		}
-	}
-	.menu_btn{
-		display: none;
-	}
-}
 
-@media (min-width: 1000px) {
-	body{
-		max-width: 1000px;
-	}
-	div.container{
-		margin: 0 0 0 auto;
-		max-width: 760px;
-	}
-}
+		// Only immediate children.
+		& > li {
+			border-left: 10px solid $main-color;
+			min-height: 45px;
+			line-height: 45px;
+		}
 
-@media (min-width: 1200px) {
-	body{
-		max-width: 1200px;
-	}
-	div.container{
-		margin: 0 0 0 auto;
-		max-width: 960px;
+		li {
+			margin-bottom: 0;
+			padding: .5rem 1rem;
+			cursor: pointer;
+			transition: all 300ms ease-in-out;
+
+			&.expansor {
+				font-weight: bold;
+			}
+
+			&:hover,
+			&:focus {
+				background-color: $secondary-text-color;
+			}
+		}
 	}
 }

@@ -8,6 +8,8 @@
 @import './pages/home_page.scss';
 @import './pages/news_index_page.scss';
 @import './pages/events_index_page.scss';
+@import './pages/category_index_page.scss';
+@import './pages/static_page.scss';
 
 
 /*
@@ -68,12 +70,17 @@ h6 {
 	margin-top: 1.5rem;
 }
 
+.offset {
+	height: 1px;
+}
+
 /*
  * Header
  */
 
 header {
 	font-size: 1rem;
+	padding-top: 3rem;
 
 	p {
 		margin-bottom: 0;
@@ -97,6 +104,7 @@ header {
 
 	#pmsp {
 		display: inline-block;
+		margin-right: 1.5rem;
 
 		img {
 			height: 30px;
@@ -131,7 +139,7 @@ header {
 	}
 
 	.columns {
-		padding: 0  0 1.5rem 0;
+		padding: 0  0 1rem 0;
 
 		&.nine {
 			display: flex;
