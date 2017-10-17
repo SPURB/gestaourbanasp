@@ -146,6 +146,10 @@ class CategoryStaticPage(Page):
 		# Add parent Category color to context.
 		context = super(CategoryStaticPage, self).get_context(request)
 
-		categorypage = self.get_parent()
-		context['cor'] = CategoryIndexPage.objects.get(id=categorypage.id).categoria.cor
+		# Get URL path (ignoring the home path),
+		# and get only the first part of the url path,
+		# which is the category page path.
+		slug = self.get_parent().url_path[6:-1].split('/')[0]
+		context['cor'] = CategoryIndexPage.objects.get(slug=slug).categoria.cor
+		
 		return context

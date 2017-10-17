@@ -29,6 +29,7 @@
     <body class="{% block body_class %}{% endblock %}">
         {% wagtailuserbar %}
 
+        <div id="overflow"></div> <!-- helper element for menu toggle -->
         {% block menu %}
             {% get_site_root as site_root %}
             {% main_menu parent=site_root calling_page=self level=3 %}

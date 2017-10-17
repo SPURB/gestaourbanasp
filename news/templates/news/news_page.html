@@ -6,45 +6,68 @@
 
 {% block body_class %}template-blogpage{% endblock %}
 
-{% block content %}    
-	<h1 id="page-title">{{ page.title }}</h1>
-	<p class="meta">{{ page.date }}</p>
+{% block content %}   
+    <div class="row" id="news-info">
+        <h4 id="page-title" style="color: {{ page.categoria.cor }};">{{ page.title }}</h4>
+        <h6>{{ page.subtitulo }}</h6>
+        <p id="date">{{ page.date }}</p>
+        {% image page.imagem_principal width-960 as imagem %}
+        <img src="{{ imagem.url }}" alt="{{ imagem }}">
+        <p class="caption">{{ page.legenda }}</p>
+    </div> 
+    <div class="row">
+        <div id="static-block">
+        	{% for block in page.corpo %}
+                {% if block.block_type == 'Título' %}
+                    <h3>{{ block.value }}</h3>
+                {% endif %}
+                {% if block.block_type == 'Subtítulo' %}
+                    <h6>{{ block.value }}</h6>
+                {% endif %}
+                {% if block.block_type == 'Parágrafo' %}
+                    <div>{{ block.value }}</div>
+                {% endif %}
+                {% if block.block_type == 'Citação' %}
+                    <blockquote>{{ block.value }}</blockquote>
+                {% endif %}
+                {% if block.block_type == 'Imagem' %}
+                    <figure>{{ block }}</figure>
+                {% endif %}
+                {% if block.block_type == 'Documento' %}
+                    <div>{{ block }}</div>
+                {% endif %}
+                {% if block.block_type == 'Página' %}
+                    <div>{{ block }}</div>
+                {% endif %}
+                {% if block.block_type == 'HTML' %}
+                    <div>{{ block }}</div>
+                {% endif %}
+                {% if block.block_type == 'Embed' %}
+                    <div>{{ block }}</div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
 
-	<div class="intro">{{ page.intro }}</div>
-
-	{% for block in page.corpo %}
-        {% if block.block_type == 'Título' %}
-            <h3>{{ block.value }}</h3>
-        {% endif %}
-        {% if block.block_type == 'Subtítulo' %}
-            <h6>{{ block.value }}</h6>
-        {% endif %}
-        {% if block.block_type == 'Parágrafo' %}
-            <div>{{ block.value }}</div>
-        {% endif %}
-        {% if block.block_type == 'Citação' %}
-            <blockquote>{{ block.value }}</blockquote>
-        {% endif %}
-        {% if block.block_type == 'Imagem' %}
-            <figure>{{ block }}</figure>
-        {% endif %}
-        {% if block.block_type == 'Documento' %}
-            <div>{{ block }}</div>
-        {% endif %}
-        {% if block.block_type == 'Página' %}
-            <div>{{ block }}</div>
-        {% endif %}
-        {% if block.block_type == 'HTML' %}
-            <div>{{ block }}</div>
-        {% endif %}
-        {% if block.block_type == 'Embed' %}
-            <div>{{ block }}</div>
-        {% endif %}
-    {% endfor %}
-
-    <p><a href="{{ page.get_parent.url }}">Retornar para página de notícias</a></p>
+     <div class="row">
+        <div class="go-back">
+            <a 
+                class="button button-primary" 
+                href="{{ page.get_parent.url }}">
+                <i class="fa fa-arrow-left"></i> 
+                {{ page.get_parent.title }}
+            </a>
+        </div>
+    </div>
     
-    {% render_comment_form for page %}
-    {% render_comment_list for page %}
+    <div class="row" id="comment-form">
+        <div class="columns eight">
+            <h5>Deixe seu comentário</h5>
+            {% render_comment_form for page %}
+        </div>
+    </div>
+    <div class="row" id="comments-list">
+        {% render_comment_list for page %}
+    </div>   
 
 {% endblock %}

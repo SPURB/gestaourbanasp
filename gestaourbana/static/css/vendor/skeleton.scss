@@ -47,6 +47,12 @@
   }
 }
 
+@media (max-width: 1360px) {
+  .container {
+    margin: 0 auto;
+  }
+}
+
 /* For devices larger than 400px */
 @media (min-width: 400px) {
   .container {
@@ -163,6 +169,7 @@ p {
 /* Buttons
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .button,
+.btn,
 button,
 input[type="submit"],
 input[type="reset"],
@@ -263,7 +270,7 @@ input[type="url"]:focus,
 input[type="password"]:focus,
 textarea:focus,
 select:focus {
-  border: 1px solid #33C3F0;
+  border: 1px solid #5A5A59;
   outline: 0; }
 label,
 legend {

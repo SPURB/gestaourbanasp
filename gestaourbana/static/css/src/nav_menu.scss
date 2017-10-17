@@ -1,12 +1,53 @@
+@media (max-width: 1360px) {
+	#menu-container {
+		left: -300px;
+
+		&.activated {
+			left: 0;
+		}
+	}
+
+	#mobile-menu-toggle {
+		display: block;
+		margin-right: 1.5rem;
+	}
+}
+
+@media (min-width: 1360px) {
+	#menu-container {
+		left: 0;
+	}
+
+	#mobile-menu-toggle {
+		display: none;
+	}
+}
+
+#overflow {
+	display: none;
+
+	&.activated {
+		display: block;
+		position: absolute;
+		background-color: rgba(0, 0, 0, .7);
+		z-index: 998;
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+	}
+}
+
 #menu-container {
 	background-color: $hairline;
 	color: $main-color;
 	position: fixed;
-	left: 0;
 	height: 100vh;
 	width: 300px;
 	padding: 3rem 0;
 	z-index: 999;
+	transition: left 300ms ease-in-out;
+	overflow: auto;
 	
 	// Overwrite default hover style.
 	a:hover {
@@ -36,14 +77,28 @@
 
 	#nav-menu {
 		ul {
-			overflow: hidden;
-			display: none;
+			max-height: 0;
+			font-size: .9rem !important;
+			transition: max-height 300ms ease-in-out;
+
+			&.expanded {
+				max-height: 1000px;
+			}
 
 			&.expansible {
+				overflow: hidden;
 				margin: 0;
 
 				li {
 					padding: 1rem 0 1rem 3rem;
+
+					& + ul li {
+						padding: 1rem 0 1rem 4.5rem;
+
+						& + ul li {
+							padding: 1rem 0 1rem 6rem;
+						}
+					}
 				}
 			}
 		}

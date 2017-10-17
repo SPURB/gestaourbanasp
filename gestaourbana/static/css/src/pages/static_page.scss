@@ -1,6 +1,77 @@
+/* News heading styles */
+
+#news-info {
+	h4 {
+		line-height: 1.3;
+		margin-bottom: 1rem;
+	}
+
+	h6 {
+		margin-bottom: 1rem;
+	}
+
+	
+	#date {
+		margin-bottom: 1.5rem;
+	}
+
+	img {
+		width: 100%;
+	}
+
+	.caption {
+		color: $secondary-text-color;
+	}
+}
+
+/* News comments styles */
+
+#comment-form {
+	margin-top: 3rem;
+
+	form {
+		margin-bottom: 6rem;
+	}
+
+	.btn.btn-default {
+		display: none; // Hides the "Visualize" comment functionality.
+	}
+
+	input[type="text"],
+	input[type="email"],
+	input[type="url"],
+	textarea {
+		width: 100%;
+		border-radius: 0;
+		margin-bottom: 1.5rem;
+	}
+
+	input[type="submit"] {
+		margin-bottom: 0;
+	}
+}
+
+#comments-list {
+	.comment-text {
+		font-family: $text-font;
+
+		p {
+			font-size: 1.3rem;
+			line-height: 2;
+		}
+	}
+
+	h4 {
+		font-size: 2rem;
+		margin-bottom: 1.5rem;
+	}
+}
+
+/* General static blocks throughout the site styles */
+
 #static-block {
-	font-size: 1.3rem;
-	line-height: 2;
+	font-size: 1.1rem;
+	line-height: 1.8;
 
 	figure {
 		margin: 1.5rem 0;
@@ -45,9 +116,9 @@
 	}
 
 	h1, h2, h3, h4, h5 {
-		font-size: 2rem;
+		font-size: 1.7rem;
 		margin-top: 1.5rem;
-		margin-bottom: 0;
+		margin-bottom: .5rem;
 	}
 }
 
