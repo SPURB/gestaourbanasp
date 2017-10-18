@@ -18,31 +18,13 @@
     <div class="row">
         <div id="static-block">
         	{% for block in page.corpo %}
-                {% if block.block_type == 'Título' %}
-                    <h3>{{ block.value }}</h3>
-                {% endif %}
-                {% if block.block_type == 'Subtítulo' %}
-                    <h6>{{ block.value }}</h6>
-                {% endif %}
                 {% if block.block_type == 'Parágrafo' %}
-                    <div>{{ block.value }}</div>
-                {% endif %}
-                {% if block.block_type == 'Citação' %}
-                    <blockquote>{{ block.value }}</blockquote>
+                    <div>{{ block.value }}</div>                                        
                 {% endif %}
                 {% if block.block_type == 'Imagem' %}
-                    <figure>{{ block }}</figure>
-                {% endif %}
-                {% if block.block_type == 'Documento' %}
-                    <div>{{ block }}</div>
-                {% endif %}
-                {% if block.block_type == 'Página' %}
-                    <div>{{ block }}</div>
+                    <figure class="full">{{ block }}</figure>
                 {% endif %}
                 {% if block.block_type == 'HTML' %}
-                    <div>{{ block }}</div>
-                {% endif %}
-                {% if block.block_type == 'Embed' %}
                     <div>{{ block }}</div>
                 {% endif %}
             {% endfor %}

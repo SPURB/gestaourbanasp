@@ -5,7 +5,7 @@
 {% block body_class %}template-blogpage{% endblock %}
 
 {% block content %}
-	<h3 id="page-title" style="color: {{ cor }};">{{ page.title }}</h3>
+	<h3 id="page-title">{{ page.title }}</h3>
     <div class="row">
         <div id="static-block">
             {% for block in page.corpo %}
@@ -20,7 +20,7 @@
                 {% endif %}
             {% endfor %}
         </div>
-    </div>
+    </div>    
     <div class="row">
         <div class="go-back">
             <a 
@@ -32,5 +32,4 @@
             </a>
         </div>
     </div>
-    
 {% endblock %}

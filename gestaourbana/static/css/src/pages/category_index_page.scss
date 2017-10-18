@@ -23,6 +23,10 @@
 #category-page-feed {
 	margin-bottom: 1.5rem;
 
+	.subpages {
+		margin-bottom: 0 !important;
+	}
+
 	a.subpage {
 		margin-bottom: 1.5rem;
 
@@ -36,7 +40,7 @@
 			margin-bottom: 0;
 		}
 
-		&:nth-child(2n+1) {
+		&:first-child {
 			margin-left: 0;
 		}
 	}

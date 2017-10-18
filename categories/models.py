@@ -8,9 +8,7 @@ from wagtail.wagtailcore import blocks
 from wagtail.wagtailcore.fields import RichTextField
 from wagtail.wagtailcore.fields import StreamField
 from wagtail.wagtailcore.models import Page
-from wagtail.wagtaildocs.blocks import DocumentChooserBlock
 from wagtail.wagtailimages.blocks import ImageChooserBlock
-from wagtail.wagtailembeds.blocks import EmbedBlock
 from wagtail.wagtailimages.edit_handlers import ImageChooserPanel
 from wagtail.wagtailsnippets.models import register_snippet
 
@@ -129,11 +127,7 @@ class CategoryStaticPage(Page):
 	corpo = StreamField([
 		('Parágrafo', blocks.RichTextBlock()),
 		('Imagem', ImageChooserBlock()),
-		('Imagem_FULL', ImageChooserBlock()),
-		('Documento', DocumentChooserBlock()),
-		('Página', blocks.PageChooserBlock()),
 		('HTML', blocks.RawHTMLBlock()),
-		('Embed', EmbedBlock()),
 	])
 
 	content_panels = Page.content_panels + [

@@ -10,6 +10,10 @@ from colorful.fields import RGBColorField
 from wagtail.wagtailadmin.edit_handlers import FieldPanel
 from wagtail.wagtailadmin.edit_handlers import InlinePanel
 from wagtail.wagtailadmin.edit_handlers import MultiFieldPanel
+from wagtail.wagtailadmin.edit_handlers import StreamFieldPanel
+from wagtail.wagtailcore import blocks
+from wagtail.wagtailimages.blocks import ImageChooserBlock
+from wagtail.wagtailcore.fields import StreamField
 from wagtail.wagtailcore.models import Orderable
 from wagtail.wagtailcore.models import Page
 from wagtail.wagtailimages.edit_handlers import ImageChooserPanel
@@ -100,4 +104,22 @@ class HomePage(Page):
 			help_text="As três primeiras manchetes descritas nesta página serão renderizadas em ordem. Qualquer manchete além da terceira não será renderizada.")
 	]
 
+class StaticPage(Page):
 
+	"""
+	Static Page Template
+
+	Simple static page for any page that is not child
+	of a category page. Such as the "Entenda" page.
+ 
+	""" 
+
+	corpo = StreamField([
+		('Parágrafo', blocks.RichTextBlock()),
+		('Imagem', ImageChooserBlock()),
+		('HTML', blocks.RawHTMLBlock()),
+	])
+
+	content_panels = Page.content_panels + [
+		StreamFieldPanel('corpo')
+	]

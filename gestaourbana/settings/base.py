@@ -161,3 +161,8 @@ AKISMET_BLOG_URL = "http://gestaourbana.prefeitura.sp.gov.br/"
 AKISMET_IS_TEST = True
 
 FLUENT_COMMENTS_AKISMET_ACTION = 'soft_delete'  # Set to 'moderate', 'soft_delete' or 'delete'
+
+# For production
+DEBUG = False
+TEMPLATE_DEBUG = True
+ALLOWED_HOSTS = ['localhost', 'comunicacao.smul.pmsp', 'gestaourbana.prefeitura.sp.gov.br']

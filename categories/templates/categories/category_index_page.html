@@ -26,12 +26,18 @@
 		<h1>Páginas relacionadas</h1>
 		<div class="row">
 			{% for pages in categorypages %}
+				{% if not forloop.counter|divisibleby:2 %}
+					<div class="row subpages">
+				{% endif %}
 				{% with pages=pages.specific %}
 					<a class="subpage columns six" href="{% pageurl pages %}">
 						<h3 style="color: {{ page.categoria.cor }};">{{ pages.title }}</h3>
 						<p>{{ pages.descricao }}</p>
 					</a>
 				{% endwith %}
+				{% if forloop.counter|divisibleby:2 or forloop.last %}
+					</div>
+				{% endif %}
 			{% endfor %}
 		</div>
 
