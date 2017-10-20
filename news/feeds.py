@@ -7,7 +7,7 @@ class LatestNewsFeed(Feed):
 
 	title = "Gestão Urbana SP"
 	link = "/noticias/"
-	description = "Últimas notícias no site do Gestão Urbana SP da Secretaria Municipal de Urbanismo e Licenciamento"
+	description = "Ultimas noticias no site do Gestao Urbana SP da Secretaria Municipal de Urbanismo e Licenciamento"
 
 	def items(self):
 		# Change this later to return only item that we're published this week. Because this will be a weekly feed.
