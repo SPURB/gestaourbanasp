@@ -71,7 +71,7 @@ class Events(Orderable):
 			MultiFieldPanel([
 				FieldPanel('horario_inicio'),
 				FieldPanel('horario_final')
-			], heading='Horários'),
+			], heading='Horarios'),
 			FieldPanel('categoria', widget=forms.RadioSelect())
 		]
 
