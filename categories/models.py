@@ -1,6 +1,3 @@
-#! /usr/bin/env python
-# -*- coding: utf-8 -*-
-
 from django import forms
 from django.db import models
 
@@ -70,7 +67,7 @@ class CategoryIndexPage(Page):
 		blank=True,
 		on_delete=models.SET_NULL, 
 		related_name='+',
-		help_text="A imagem principal da notícia."
+		help_text="A imagem principal da noticia."
 	)
 
 	legenda = models.CharField(
@@ -124,11 +121,11 @@ class CategoryStaticPage(Page):
 	descricao = models.CharField(
 		max_length=250, 
 		blank=True,
-		help_text="A descrição que vai aparecer na página index da categoria."
+		help_text="A descricao que vai aparecer na pasgina index da categoria."
 	)
 
 	corpo = StreamField([
-		('Parágrafo', blocks.RichTextBlock()),
+		('Paragrafo', blocks.RichTextBlock()),
 		('Imagem', ImageChooserBlock()),
 		('HTML', blocks.RawHTMLBlock()),
 	])

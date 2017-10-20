@@ -1,6 +1,3 @@
-#! /usr/bin/env python
-# -*- coding: utf-8 -*-
-
 from django import forms
 from django.db import models
 
@@ -32,17 +29,17 @@ class Events(Orderable):
 		"""
 
 		titulo = models.CharField(
-			default="Título",
+			default="Titulo",
 			blank=True, 
 			max_length=140, 
-			help_text="O título do evento."
+			help_text="O titulo do evento."
 		)
 
 		slug = models.CharField(
 			default="#",
 			blank=True, 
 			max_length=140, 
-			help_text="A url do evento. Não deve conter nenhum caractere especial."
+			help_text="A url do evento. Nao deve conter nenhum caractere especial."
 		)
 
 		categoria = models.ForeignKey(
@@ -55,11 +52,11 @@ class Events(Orderable):
 
 		endereco = models.CharField(max_length=255)
 
-		data_inicio = models.DateField("Data de Início")
+		data_inicio = models.DateField("Data de Inicio")
 		data_final = models.DateField("Data Final", blank=True, null=True)
 
-		horario_inicio = models.TimeField("Horário de Início")
-		horario_final = models.TimeField("Horário Final")
+		horario_inicio = models.TimeField("Horario de Inicio")
+		horario_final = models.TimeField("Horario Final")
 
 		page = ParentalKey('EventsIndexPage', related_name='events')
 

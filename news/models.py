@@ -1,6 +1,3 @@
-#! /usr/bin/env python
-# -*- coding: utf-8 -*-
-
 import re
 
 from django import forms
@@ -51,7 +48,7 @@ class NewsPage(Page):
 	""" 
 
 	corpo = StreamField([
-		('Parágrafo', blocks.RichTextBlock()),
+		('Paragrafo', blocks.RichTextBlock()),
 		('Imagem', ImageChooserBlock()),
 		('HTML', blocks.RawHTMLBlock()),
 	])
@@ -59,13 +56,13 @@ class NewsPage(Page):
 	descricao = models.CharField(
 		max_length=500, 
 		blank=True,
-		help_text="A descrição que vai aparecer na página que lista as notícias."
+		help_text="A descricao que vai aparecer na pagina que lista as noticias."
 	)
 
 	subtitulo = models.CharField(
 		max_length=250, 
 		blank=True,
-		help_text="O subtítulo da legenda."
+		help_text="O subtitulo da legenda."
 	)
 
 	imagem_principal = models.ForeignKey(
@@ -74,7 +71,7 @@ class NewsPage(Page):
 		blank=True,
 		on_delete=models.SET_NULL, 
 		related_name='+',
-		help_text="A imagem principal da notícia."
+		help_text="A imagem principal da noticia."
 	)
 
 	legenda = models.CharField(
@@ -109,7 +106,7 @@ class NewsPage(Page):
 		MultiFieldPanel([
 			FieldPanel('date'),
 			FieldPanel('categoria', widget=forms.RadioSelect())
-		], heading="Marcadores da Notícia")        
+		], heading="Marcadores da Noticia")        
 	]
 
 	def get_absolute_url(self):

@@ -1,6 +1,3 @@
-#! /usr/bin/env python
-# -*- coding: utf-8 -*-
-
 from __future__ import absolute_import, unicode_literals
 
 from modelcluster.fields import ParentalKey
@@ -44,10 +41,10 @@ class HomePage(Page):
 	class Headlines(Orderable):
 
 		titulo = models.CharField(
-			default="Título",
+			default="Titulo",
 			blank=True, 
 			max_length=140, 
-			help_text="O título da manchete."
+			help_text="O titulo da manchete."
 		)
 		imagem =  models.ForeignKey(
 			'wagtailimages.Image', 
@@ -60,7 +57,7 @@ class HomePage(Page):
 		link = models.URLField(
 			default="#", 
 			blank=True, 
-			help_text="O link para onde a manchete irá redirecionar o usuário."
+			help_text="O link para onde a manchete ira redirecionar o usuario."
 		)
 
 		categoria = models.ForeignKey(
@@ -104,7 +101,7 @@ class HomePage(Page):
 			label="Manchetes",
 			min_num=1,
 			max_num=3,
-			help_text="As três primeiras manchetes descritas nesta página serão renderizadas em ordem. Qualquer manchete além da terceira não será renderizada.")
+			help_text="As tres primeiras manchetes descritas nesta pagina serao renderizadas em ordem. Qualquer manchete alem da terceira nao sera renderizada.")
 	]
 
 class StaticPage(Page):
@@ -118,7 +115,7 @@ class StaticPage(Page):
 	""" 
 
 	corpo = StreamField([
-		('Parágrafo', blocks.RichTextBlock()),
+		('Paragrafo', blocks.RichTextBlock()),
 		('Imagem', ImageChooserBlock()),
 		('HTML', blocks.RawHTMLBlock()),
 	])
