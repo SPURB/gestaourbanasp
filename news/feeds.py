@@ -5,7 +5,7 @@ from news.models import NewsPage
 
 class LatestNewsFeed(Feed):
 
-	title = "Gestão Urbana SP"
+	title = "Gestao Urbana SP"
 	link = "/noticias/"
 	description = "Ultimas noticias no site do Gestao Urbana SP da Secretaria Municipal de Urbanismo e Licenciamento"
 
