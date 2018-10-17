@@ -28,6 +28,11 @@ class Events(Orderable):
 
 		"""
 
+		def save(self, *args, **kwargs):
+			from django.utils.text import slugify
+			self.slug = slugify(self.titulo)
+			super(Events, self).save(*args, **kwargs)
+
 		titulo = models.CharField(
 			default="Titulo",
 			blank=True, 

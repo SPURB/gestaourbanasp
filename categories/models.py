@@ -29,6 +29,11 @@ class Categories(models.Model):
 
 	"""
 
+	def save(self, *args, **kwargs):
+		from django.utils.text import slugify
+		self.slug = slugify(self.slug)
+		super(Categories, self).save(*args, **kwargs)
+
 	nome = models.CharField(max_length=140)
 	slug = models.SlugField(unique=True, max_length=80)
 	cor = RGBColorField()
